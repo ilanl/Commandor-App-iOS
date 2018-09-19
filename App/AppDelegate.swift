@@ -10,6 +10,22 @@ import UIKit
 import Commandor
 
 class AppHandlerTest : HandlerProtocol {
+    
+    var title: String {
+        get {
+            return "Title"
+        }
+    }
+    
+    var view: UIView {
+        get {
+            var v :UIView
+            v = UIView(frame: CGRect(x: 0, y: 0, width: 600, height: 600))
+            v.backgroundColor = UIColor.red
+            return v
+        }
+    }
+    
     func canHandleCommand(name: String) -> Bool {
         return true
     }

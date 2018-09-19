@@ -11,6 +11,22 @@ import UIKit
 
 /// Tester class
 private class PrivateHandler : HandlerProtocol {
+    
+    var title: String {
+        get {
+            return "Title"
+        }
+    }
+    
+    var view: UIView {
+        get {
+            var v :UIView
+            v = UIView(frame: CGRect(x: 0, y: 0, width: 600, height: 600))
+            v.backgroundColor = UIColor.red
+            return v
+        }
+    }
+    
     func canHandleCommand(name: String) -> Bool {
         return true
     }
@@ -37,4 +53,11 @@ public protocol HandlerProtocol: class {
     ///   - callback: callback function, do what you need and close the screen after if needed
     
     func doCommand(window: UIWindow, name: String, json: String, completion: (UIWindow, HandlerError?)-> Void)
+    
+    /// Visual title
+    var title: String { get }
+    
+    
+    /// Basic visual control
+    var view: UIView { get }
 }
