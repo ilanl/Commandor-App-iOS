@@ -1,0 +1,11 @@
+{
+    "play-media": [
+        {
+            "handler": "DefaultVideoPlayer"
+        },
+        {
+            "handler": "YouTubeVideoPlayer"
+        }
+    ]
+}
+

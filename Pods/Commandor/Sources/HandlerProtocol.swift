@@ -8,15 +8,20 @@
 import Foundation
 import UIKit
 
-
 /// Tester class
 private class PrivateHandler : HandlerProtocol {
     
-    var title: String {
-        get {
-            return "Title"
-        }
+    static func isCompatible(with type: String) -> Bool {
+        return type == "private-type"
     }
+    
+    func onClick(window: UIWindow, completion: (UIWindow, HandlerError?) -> Void) {
+        completion(window, HandlerError(message: "error"))
+    }
+    
+    var id: String!
+    
+    var params: Dictionary<String, AnyObject>!
     
     var view: UIView {
         get {
@@ -26,38 +31,29 @@ private class PrivateHandler : HandlerProtocol {
             return v
         }
     }
-    
-    func canHandleCommand(name: String) -> Bool {
-        return true
-    }
-    
-    func doCommand(window: UIWindow, name: String, json: String, completion: (UIWindow, HandlerError?) -> Void) {
-        completion(window, HandlerError(message: "bla"))
-    }
 }
 
 public protocol HandlerProtocol: class {
     
-    /// Check wether the handler support this command
+    /// Check wether the handler support this type of command
     ///
-    /// - Parameter name: command name, for example: play-media
+    /// - Parameter name: command type, for example: play-media
     /// - Returns: true when supported, otherwise false
-    func canHandleCommand(name: String) -> Bool
+    static func isCompatible(with type: String) -> Bool
     
     /// Run the command
     ///
     /// - Parameters:
     ///   - window: if needed by the handler for example to show a screen and control the navigation
-    ///   - name: command name
-    ///   - json: json string
     ///   - callback: callback function, do what you need and close the screen after if needed
+    func onClick(window: UIWindow, completion: (UIWindow, HandlerError?)-> Void)
     
-    func doCommand(window: UIWindow, name: String, json: String, completion: (UIWindow, HandlerError?)-> Void)
+    /// Identifier propery
+    var id: String! { set get }
     
-    /// Visual title
-    var title: String { get }
+    /// Params propery (decoded from json)
+    var params: Dictionary<String, AnyObject>! { set get }
     
-    
-    /// Basic visual control
+    /// Created view
     var view: UIView { get }
 }
