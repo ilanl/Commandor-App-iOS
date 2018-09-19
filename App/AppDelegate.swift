@@ -9,6 +9,16 @@
 import UIKit
 import Commandor
 
+class AppHandlerTest : HandlerProtocol {
+    func canHandleCommand(name: String) -> Bool {
+        return true
+    }
+    
+    func doCommand(window: UIWindow, name: String, json: String, completion: (UIWindow, HandlerError?) -> Void) {
+        completion(window, HandlerError(message: "bla"))
+    }
+}
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 

@@ -8,7 +8,19 @@
 import Foundation
 import UIKit
 
-public protocol HandlerProtocol {
+
+/// Tester class
+private class PrivateHandler : HandlerProtocol {
+    func canHandleCommand(name: String) -> Bool {
+        return true
+    }
+    
+    func doCommand(window: UIWindow, name: String, json: String, completion: (UIWindow, HandlerError?) -> Void) {
+        completion(window, HandlerError(message: "bla"))
+    }
+}
+
+public protocol HandlerProtocol: class {
     
     /// Check wether the handler support this command
     ///
@@ -24,5 +36,5 @@ public protocol HandlerProtocol {
     ///   - json: json string
     ///   - callback: callback function, do what you need and close the screen after if needed
     
-    func doCommand(window: UIWindow, name: String, json: String, completion: (UIWindow, NSError?)-> Void)
+    func doCommand(window: UIWindow, name: String, json: String, completion: (UIWindow, HandlerError?)-> Void)
 }
