@@ -1,0 +1,16 @@
+PODS:
+  - Commandor (0.1.0)
+
+DEPENDENCIES:
+  - Commandor (~> 0.1.0)
+
+SPEC REPOS:
+  https://github.com/ilanl/pod-specs.git:
+    - Commandor
+
+SPEC CHECKSUMS:
+  Commandor: f1bf1ebfc6842a9c8e3e8b4395ae4a481866b64c
+
+PODFILE CHECKSUM: 201cea72cc7d200439a83e55874cfb7084894b8e
+
+COCOAPODS: 1.5.3
