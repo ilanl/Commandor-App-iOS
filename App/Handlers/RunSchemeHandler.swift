@@ -11,16 +11,16 @@ import Commandor
 
 class RunSchemeHandler: HandlerProtocol {
     
+    static func getSupportedDescriptor() -> String {
+        return RunSchemeHandler.type
+    }
+    
     required init(id: String, params: Dictionary<String, AnyObject>?) {
         self.id = id
         self.params = params
     }
     
     private static let type = "run-scheme"
-    
-    static func isCompatible(with type: String) -> Bool {
-        return type == RunSchemeHandler.type
-    }
     
     init(id: String, params: Dictionary<String, AnyObject>) {
         self.id = id

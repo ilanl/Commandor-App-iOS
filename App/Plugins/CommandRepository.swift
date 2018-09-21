@@ -12,8 +12,13 @@ import Commandor
 class CommandRepository {
     
     init() {
-        let mapOfPlugins = PluginLoader().getClassesByProtocol(p: Commandor.HandlerProtocol.self)
-        print(mapOfPlugins)
+        
+        var map: [String:HandlerProtocol.Type] = [:]
+        let arrayOfPlugins = PluginLoader().getClassesByProtocol(p: Commandor.HandlerProtocol.self) as! [HandlerProtocol.Type]
+        arrayOfPlugins.forEach { (t) in
+            map[t.getSupportedDescriptor()] = t
+        }
+        print(map)
     }
     
     

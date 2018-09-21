@@ -16,8 +16,8 @@ public class PluginExampleHandler : HandlerProtocol {
         self.params = params
     }
     
-    @objc public static func isCompatible(with type: String) -> Bool {
-        return type == "public-handler-type"
+    @objc public static func getSupportedDescriptor() -> String {
+        return "public-handler-type"
     }
     
     @objc public func onClick(window: UIWindow, completion: (UIWindow, HandlerError?) -> Void) {
@@ -43,11 +43,8 @@ public class PluginExampleHandler : HandlerProtocol {
     /// A constructor to create instance by class name
     @objc init(id: String, params: Dictionary<String, AnyObject>?)
     
-    /// Check wether the handler support this type of command
-    ///
-    /// - Parameter name: command type, for example: play-media
-    /// - Returns: true when supported, otherwise false
-    @objc static func isCompatible(with type: String) -> Bool
+    /// Get the supported command descriptor
+    @objc static func getSupportedDescriptor() -> String
     
     /// Run the command
     ///

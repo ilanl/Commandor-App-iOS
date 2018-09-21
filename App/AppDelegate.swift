@@ -51,9 +51,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 if class_conformsToProtocol(cls, p) {
                     ret.append(cls)
                     print(NSStringFromClass(cls))
-                    let compatible1 = (cls.isCompatible(with: "public-handler-type"))
-                    let compatible2 = (cls.isCompatible(with: "run-scheme"))
-                    print("public-handler-type: \(compatible1) - run-scheme: \(compatible2)")
+//                    let compatible1 = (cls.isCompatible(with: "public-handler-type"))
+//                    let compatible2 = (cls.isCompatible(with: "run-scheme"))
+//                    print("public-handler-type: \(compatible1) - run-scheme: \(compatible2)")
                 }
             }
             return ret
