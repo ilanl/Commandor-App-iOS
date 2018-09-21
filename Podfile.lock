@@ -1,5 +1,5 @@
 PODS:
-  - Commandor (0.1.5)
+  - Commandor (0.1.8)
 
 DEPENDENCIES:
   - Commandor
@@ -9,7 +9,7 @@ SPEC REPOS:
     - Commandor
 
 SPEC CHECKSUMS:
-  Commandor: 8bfd73df45c1d80fcecd303c9a61bda3c4c9b0f3
+  Commandor: 1bb832b40bec653dde0c6cc5a896446de6ade662
 
 PODFILE CHECKSUM: 1967801dd855fae7aa3535363e34688e10a11830
 

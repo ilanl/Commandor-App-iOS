@@ -16,8 +16,71 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var handlers: [HandlerProtocol] = [RunSchemeHandler(id: "Open Wifi", params: [:])]
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
         
+//        let myclass = stringClassFromString("Commandor", "PluginExampleHandler") as! HandlerProtocol.Type
+//
+//        if (myclass.isCompatible(with: "public-handler-type")) {
+//            let instance = myclass.init(id: "1", params: [:])
+//        }
+//        let fm = FileManager.default
+//        Bundle.allBundles.forEach { (bundle) in
+//
+//            if let path = bundle.privateFrameworksPath, let resourcePath = bundle.resourcePath {
+//                do {
+//                    let items = try fm.contentsOfDirectory(atPath: path)
+//                    for item in items {
+//                        print("Found \(item)")
+//                        // load framework
+//                        if let b = Bundle(path: "\(path)/\(item)") {
+//                            b.load()
+//                        }
+//
+//                    }
+//
+//                } catch {
+//                    print("error")
+//                }
+//            }
+//        }
+        
+        func getClassesImplementingProtocol(p: Protocol) -> [AnyClass] {
+            let classes = getClassList()
+            var ret = [AnyClass]()
+            
+            for cls in classes {
+                if class_conformsToProtocol(cls, p) {
+                    ret.append(cls)
+                    print(NSStringFromClass(cls))
+                    let compatible1 = (cls.isCompatible(with: "public-handler-type"))
+                    let compatible2 = (cls.isCompatible(with: "run-scheme"))
+                    print("public-handler-type: \(compatible1) - run-scheme: \(compatible2)")
+                }
+            }
+            return ret
+        }
+        
+        func getClassList() -> [AnyClass] {
+            let expectedClassCount = objc_getClassList(nil, 0)
+            let allClasses = UnsafeMutablePointer<AnyClass>.allocate(capacity: Int(expectedClassCount))
+            let autoreleasingAllClasses = AutoreleasingUnsafeMutablePointer<AnyClass>(allClasses)
+            let actualClassCount:Int32 = objc_getClassList(autoreleasingAllClasses, expectedClassCount)
+            
+            var classes = [AnyClass]()
+            for i in 0 ..< actualClassCount {
+                let currentClass: AnyClass = allClasses[Int(i)]
+                classes.append(currentClass)
+            }
+            
+            allClasses.deallocate()
+            
+            return classes
+        }
+        
+//        let handlers = getClassesImplementingProtocol(p: Commandor.HandlerProtocol.self)
+        
+        CommandRepository()
+//        print(handlers)
+
         return true
     }
 

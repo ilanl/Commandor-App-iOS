@@ -4,7 +4,7 @@ class SearchApi {
   
     let processingQueue = OperationQueue()
     
-    func searchCommandsForTerm(_ searchTerm: String, completion : @escaping (_ results: ActionSearchResults?, _ error : NSError?) -> Void){
+    func searchCommandsForTerm(_ searchTerm: String, completion : @escaping (_ results: SearchResults?, _ error : NSError?) -> Void){
         
         var data:[Action] = []
         let feedMetaData = FeedFetcher().getData()
@@ -16,7 +16,7 @@ class SearchApi {
             }
         }
         
-        let searchResults = ActionSearchResults(searchTerm: searchTerm, searchResults: data)
+        let searchResults = SearchResults(searchTerm: searchTerm, searchResults: data)
 
         OperationQueue.main.addOperation({
             completion(searchResults, nil)

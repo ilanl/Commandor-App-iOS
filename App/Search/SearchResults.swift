@@ -1,6 +1,6 @@
 import Foundation
 
-struct ActionSearchResults {
+struct SearchResults {
   let searchTerm : String
   let searchResults : [Action]
 }

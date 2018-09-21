@@ -9,21 +9,26 @@ import Foundation
 import UIKit
 
 /// Tester class
-private class PrivateHandler : HandlerProtocol {
+public class PluginExampleHandler : HandlerProtocol {
     
-    static func isCompatible(with type: String) -> Bool {
-        return type == "private-type"
+    @objc public required init(id: String, params: Dictionary<String, AnyObject>?) {
+        self.id = id
+        self.params = params
     }
     
-    func onClick(window: UIWindow, completion: (UIWindow, HandlerError?) -> Void) {
+    @objc public static func isCompatible(with type: String) -> Bool {
+        return type == "public-handler-type"
+    }
+    
+    @objc public func onClick(window: UIWindow, completion: (UIWindow, HandlerError?) -> Void) {
         completion(window, HandlerError(message: "error"))
     }
     
-    var id: String!
+    public private (set) var id: String
     
-    var params: Dictionary<String, AnyObject>!
+    public private (set) var params: Dictionary<String, AnyObject>?
     
-    var view: UIView {
+    public var view: UIView {
         get {
             var v :UIView
             v = UIView(frame: CGRect(x: 0, y: 0, width: 600, height: 600))
@@ -33,26 +38,29 @@ private class PrivateHandler : HandlerProtocol {
     }
 }
 
-public protocol HandlerProtocol: class {
+@objc public protocol HandlerProtocol: class {
+    
+    /// A constructor to create instance by class name
+    @objc init(id: String, params: Dictionary<String, AnyObject>?)
     
     /// Check wether the handler support this type of command
     ///
     /// - Parameter name: command type, for example: play-media
     /// - Returns: true when supported, otherwise false
-    static func isCompatible(with type: String) -> Bool
+    @objc static func isCompatible(with type: String) -> Bool
     
     /// Run the command
     ///
     /// - Parameters:
     ///   - window: if needed by the handler for example to show a screen and control the navigation
     ///   - callback: callback function, do what you need and close the screen after if needed
-    func onClick(window: UIWindow, completion: (UIWindow, HandlerError?)-> Void)
+    @objc func onClick(window: UIWindow, completion: (UIWindow, HandlerError?)-> Void)
     
     /// Identifier propery
-    var id: String! { set get }
+    var id: String { get }
     
     /// Params propery (decoded from json)
-    var params: Dictionary<String, AnyObject>! { set get }
+    var params: Dictionary<String, AnyObject>? { get }
     
     /// Created view
     var view: UIView { get }

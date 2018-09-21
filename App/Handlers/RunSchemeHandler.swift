@@ -11,6 +11,11 @@ import Commandor
 
 class RunSchemeHandler: HandlerProtocol {
     
+    required init(id: String, params: Dictionary<String, AnyObject>?) {
+        self.id = id
+        self.params = params
+    }
+    
     private static let type = "run-scheme"
     
     static func isCompatible(with type: String) -> Bool {
@@ -26,9 +31,9 @@ class RunSchemeHandler: HandlerProtocol {
         completion(window, HandlerError(message: "bla"))
     }
     
-    var id: String!
+    var id: String
     
-    var params: Dictionary<String, AnyObject>!
+    var params: Dictionary<String, AnyObject>?
     
     var view: UIView {
         get {

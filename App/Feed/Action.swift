@@ -10,5 +10,5 @@ class Action : Equatable {
 }
 
 func == (lhs: Action, rhs: Action) -> Bool {
-  return lhs.handler.id! == rhs.handler.id!
+  return lhs.handler.id == rhs.handler.id
 }
