@@ -7,6 +7,7 @@ target 'App' do
   use_frameworks!
 	
   pod 'Commandor'
+  pod 'VideoPlayerCommandor'
   		
   target 'AppTests' do
     inherit! :search_paths
