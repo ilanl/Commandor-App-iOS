@@ -16,7 +16,8 @@ public class Plugin1: CommandActionProtocol {
     
     public func onClick(window: UIWindow, completion: (UIWindow, CommandActionError?) -> Void) {
         //
-        print("click1")
+        print("click1 \(address(o: self))")
+        
         completion(window, nil)
     }
     
