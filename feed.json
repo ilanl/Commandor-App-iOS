@@ -1,11 +1,11 @@
 [
     {
-        "type": "play-media",
+        "type": "handler1",
         "force-handler": "YouTubeVideoPlayer",
         "src": "https://www.youtube.com/watch?v=oQg4VCw24Qo"
     },
     {
-        "type": "play-media",
+        "type": "handler1",
         "src": "http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4"
     },
     {

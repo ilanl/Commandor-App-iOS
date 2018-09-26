@@ -1,6 +1,6 @@
 import Foundation
 
 struct SearchResults {
-  let searchTerm : String
+  let searchTerm : String?
   let searchResults : [ActionWrapper]
 }

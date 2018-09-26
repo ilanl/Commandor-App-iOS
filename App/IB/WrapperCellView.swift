@@ -7,7 +7,8 @@
 //
 
 import UIKit
+import Commandor
 
 class WrapperCellView: UICollectionViewCell {
-    
+    var handler: CommandActionProtocol!
 }

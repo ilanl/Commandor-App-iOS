@@ -10,15 +10,15 @@ import Foundation
 /// If no url is given fallback to default feed from disk
 class FeedFetcher {
     
-    func getData(url: URL? = nil) -> [Dictionary<String, AnyObject>] {
+    func getData(url: URL? = nil) -> [[String: Any]] {
         
-        var results:[Dictionary<String, AnyObject>] = []
+        var results: [[String: Any]] = []
         if let url = Bundle.main.url(forResource: "feed", withExtension: "json") {
             do {
                 let data = try Data(contentsOf: url)
                 let jsonResult = try JSONSerialization.jsonObject(with: data, options: .mutableLeaves)
                 
-                if let jsonResult = jsonResult as? [Dictionary<String, AnyObject>] {
+                if let jsonResult = jsonResult as? [[String: Any]] {
                     results.append(contentsOf: jsonResult)
                 }
             } catch {

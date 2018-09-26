@@ -17,6 +17,7 @@ public class Plugin1: CommandActionProtocol {
     public func onClick(window: UIWindow, completion: (UIWindow, CommandActionError?) -> Void) {
         //
         print("click1")
+        completion(window, nil)
     }
     
     private var id: String
@@ -31,7 +32,13 @@ public class Plugin1: CommandActionProtocol {
         return self.id
     }
     
+    var _view: UIView?
     public func getView(superView: UIView) -> UIView {
-        return View1(frame: superView.bounds)
+        
+        if _view == nil {
+            let frame = superView.bounds
+            _view = View1(frame: frame)
+        }
+        return _view!
     }
 }
