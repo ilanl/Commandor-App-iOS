@@ -13,7 +13,7 @@ class SearchApi {
 
         feedMetaData.forEach { (metaData) in
             guard let type = metaData["type"] as? String else { return }
-            guard let handler = container.commandRepository!.map[type]?.init(json: [:]) else { return }
+            guard let handler = container.commandRepository!.map[type]?.init(json: metaData) else { return }
             if searchTerm == nil || searchTerm!.contains(type) {
                 data.append(ActionWrapper(handler: handler))
             }

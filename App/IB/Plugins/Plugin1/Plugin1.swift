@@ -18,15 +18,27 @@ public class Plugin1: CommandActionProtocol {
         //
         print("click1 \(address(o: self))")
         
+        if let url = URL(string:self.scheme) {
+            if UIApplication.shared.canOpenURL(url) {
+                if #available(iOS 10.0, *) {
+                    UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                } else {
+                    UIApplication.shared.openURL(url)
+                }
+            }
+        }
+        
         completion(window, nil)
     }
     
     private var id: String
     private var json: [String: Any]
+    private var scheme: String
     
     public required init?(json: [String : Any]) {
         self.id = "11"
         self.json = json
+        self.scheme = self.json["scheme"] as! String
     }
     
     public func getIdentifier() -> String {
