@@ -29,6 +29,9 @@
 		5FC8B3C72152EF8D0061D01A /* FeedPreferenceReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC8B3C62152EF8D0061D01A /* FeedPreferenceReader.swift */; };
 		5FEEB9F3215C063300E03C77 /* Plugin1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FEEB9F2215C063300E03C77 /* Plugin1.swift */; };
 		5FEEB9F6215C2AA800E03C77 /* AddressOf.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FEEB9F5215C2AA800E03C77 /* AddressOf.swift */; };
+		5FEEB9FA215C2EA400E03C77 /* View2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FEEB9F8215C2EA400E03C77 /* View2.swift */; };
+		5FEEB9FB215C2EA400E03C77 /* Plugin2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FEEB9F9215C2EA400E03C77 /* Plugin2.swift */; };
+		5FEEB9FD215C2F9A00E03C77 /* View2.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5FEEB9FC215C2F9A00E03C77 /* View2.xib */; };
 		9C9ACD3321FC63F917FAD58F /* Pods_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EF98A2C6386D7839D122DC6 /* Pods_App.framework */; };
 /* End PBXBuildFile section */
 
@@ -71,6 +74,9 @@
 		5FC8B3C62152EF8D0061D01A /* FeedPreferenceReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedPreferenceReader.swift; sourceTree = "<group>"; };
 		5FEEB9F2215C063300E03C77 /* Plugin1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plugin1.swift; sourceTree = "<group>"; };
 		5FEEB9F5215C2AA800E03C77 /* AddressOf.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressOf.swift; sourceTree = "<group>"; };
+		5FEEB9F8215C2EA400E03C77 /* View2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = View2.swift; sourceTree = "<group>"; };
+		5FEEB9F9215C2EA400E03C77 /* Plugin2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Plugin2.swift; sourceTree = "<group>"; };
+		5FEEB9FC215C2F9A00E03C77 /* View2.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = View2.xib; sourceTree = "<group>"; };
 		744B2803FF07A358C4744B87 /* Pods-AppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AppTests/Pods-AppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		9EF98A2C6386D7839D122DC6 /* Pods_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF254C5A9486F0769BA5040D /* Pods_AppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -119,6 +125,7 @@
 		5F9155FD215BF495002133AB /* Plugins */ = {
 			isa = PBXGroup;
 			children = (
+				5FEEB9F7215C2E5B00E03C77 /* Plugin2 */,
 				5FEEB9F1215C061C00E03C77 /* Plugin1 */,
 			);
 			path = Plugins;
@@ -228,6 +235,16 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
+		5FEEB9F7215C2E5B00E03C77 /* Plugin2 */ = {
+			isa = PBXGroup;
+			children = (
+				5FEEB9F9215C2EA400E03C77 /* Plugin2.swift */,
+				5FEEB9F8215C2EA400E03C77 /* View2.swift */,
+				5FEEB9FC215C2F9A00E03C77 /* View2.xib */,
+			);
+			path = Plugin2;
+			sourceTree = "<group>";
+		};
 		F224C26F7B0AC5F680337C16 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -322,6 +339,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5FC8B38021519DA10061D01A /* LaunchScreen.storyboard in Resources */,
+				5FEEB9FD215C2F9A00E03C77 /* View2.xib in Resources */,
 				5FC8B3C32152E7BD0061D01A /* preferences.json in Resources */,
 				5F9155FF215BF4B0002133AB /* View1.xib in Resources */,
 				5FC8B37D21519DA10061D01A /* Assets.xcassets in Resources */,
@@ -410,8 +428,10 @@
 				5F9155FC215BF302002133AB /* WrapperCellView.swift in Sources */,
 				5FC8B3C52152EDF70061D01A /* FeedFetcher.swift in Sources */,
 				5FA60E5B21557992001F6939 /* PluginLoader.swift in Sources */,
+				5FEEB9FB215C2EA400E03C77 /* Plugin2.swift in Sources */,
 				5FC8B3C12152D3D50061D01A /* HandlerJson.swift in Sources */,
 				5FC8B3B52152B1F40061D01A /* SearchApi.swift in Sources */,
+				5FEEB9FA215C2EA400E03C77 /* View2.swift in Sources */,
 				5FC8B3B62152B1F40061D01A /* ActionWrapper.swift in Sources */,
 				5FEEB9F3215C063300E03C77 /* Plugin1.swift in Sources */,
 				5FC8B37621519DA00061D01A /* AppDelegate.swift in Sources */,

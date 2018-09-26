@@ -8,37 +8,23 @@
 
 import Commandor
 
-public class Plugin1: CommandActionProtocol {
+public class Plugin2: CommandActionProtocol {
     
     public static func getSupportedDescriptor() -> String {
-        return "handler1"
+        return "handler2"
     }
     
     public func onClick(window: UIWindow, completion: (UIWindow, CommandActionError?) -> Void) {
-        //
-        print("click1 \(address(o: self))")
-        
-        if let url = URL(string:self.scheme) {
-            if UIApplication.shared.canOpenURL(url) {
-                if #available(iOS 10.0, *) {
-                    UIApplication.shared.open(url, options: [:], completionHandler: nil)
-                } else {
-                    UIApplication.shared.openURL(url)
-                }
-            }
-        }
-        
+        print("click2 \(address(o: self))")
         completion(window, nil)
     }
     
     private var id: String
     private var json: [String: Any]
-    private var scheme: String
     
     public required init?(json: [String : Any]) {
         self.json = json
         self.id = self.json["id"] as! String
-        self.scheme = self.json["scheme"] as! String
     }
     
     public func getIdentifier() -> String {
@@ -50,7 +36,7 @@ public class Plugin1: CommandActionProtocol {
         
         if _view == nil {
             let frame = superView.bounds
-            _view = View1(frame: frame)
+            _view = View2(frame: frame)
         }
         return _view!
     }
