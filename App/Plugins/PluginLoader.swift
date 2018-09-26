@@ -11,6 +11,7 @@ import Foundation
 class PluginLoader {
     
     private func getClasses(filter: ((_ cls: AnyClass) -> Bool)) -> [AnyClass] {
+        
         let expectedClassCount = objc_getClassList(nil, 0)
         let allClasses = UnsafeMutablePointer<AnyClass>.allocate(capacity: Int(expectedClassCount))
         let autoreleasingAllClasses = AutoreleasingUnsafeMutablePointer<AnyClass>(allClasses)

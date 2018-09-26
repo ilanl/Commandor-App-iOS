@@ -8,18 +8,26 @@
 
 import UIKit
 import Commandor
-import VideoPlayerCommandor
+//import VideoPlayerCommandor
+
+class AppContainer {
+    var commandRepository: CommandActionRepository?
+}
+
+protocol AppContainerDelegate: class {
+    var container: AppContainer { get }
+}
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
-
+class AppDelegate: UIResponder, UIApplicationDelegate, AppContainerDelegate {
+    
+    var container: AppContainer = AppContainer()
+    
     var window: UIWindow?
-    var handlers: [HandlerProtocol] = [RunSchemeHandler(id: "Open Wifi", params: [:])]
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        CommandRepository()
-
+        self.container.commandRepository = CommandActionRepository()
         return true
     }
 

@@ -6,20 +6,18 @@
 //  Copyright © 2018 IlanL Ltd. All rights reserved.
 //
 
-import Foundation
 import Commandor
 
-class CommandRepository {
+class CommandActionRepository {
+    
+    private (set) var map: [String:CommandActionProtocol.Type] = [:]
     
     init() {
         
-        var map: [String:HandlerProtocol.Type] = [:]
-        let arrayOfPlugins = PluginLoader().getClassesByProtocol(p: Commandor.HandlerProtocol.self) as! [HandlerProtocol.Type]
+        let arrayOfPlugins = PluginLoader().getClassesByProtocol(p: Commandor.CommandActionProtocol.self) as! [CommandActionProtocol.Type]
         arrayOfPlugins.forEach { (t) in
             map[t.getSupportedDescriptor()] = t
         }
         print(map)
     }
-    
-    
 }
