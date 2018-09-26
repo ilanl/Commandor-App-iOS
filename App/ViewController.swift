@@ -23,7 +23,7 @@ class ViewController: UIViewController, UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! WrapperCellView
         
         // TODO: order them somehow
-        let pluginView = (appContainer!.commandRepository!.map["handler1"] as! CommandActionProtocol.Type).init(json: [:])!.getView(superView: cell)
+        let pluginView = (appContainer!.commandRepository!.map["handler1"]!).init(json: [:])!.getView(superView: cell)
         
         cell.addSubview(pluginView)
         return cell
