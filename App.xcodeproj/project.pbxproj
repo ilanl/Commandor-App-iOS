@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		527256A09B5CBFFE0739802A /* Pods_AppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF254C5A9486F0769BA5040D /* Pods_AppTests.framework */; };
-		5F9155FC215BF302002133AB /* WrapperCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9155FB215BF302002133AB /* WrapperCellView.swift */; };
+		5F9155FC215BF302002133AB /* HandlerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9155FB215BF302002133AB /* HandlerCell.swift */; };
 		5F9155FF215BF4B0002133AB /* View1.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F9155FE215BF4B0002133AB /* View1.xib */; };
 		5F915601215BF4CA002133AB /* View1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F915600215BF4CA002133AB /* View1.swift */; };
 		5FA60E5B21557992001F6939 /* PluginLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA60E5A21557992001F6939 /* PluginLoader.swift */; };
@@ -27,6 +27,11 @@
 		5FC8B3C32152E7BD0061D01A /* preferences.json in Resources */ = {isa = PBXBuildFile; fileRef = 5FC8B3C22152E7BD0061D01A /* preferences.json */; };
 		5FC8B3C52152EDF70061D01A /* FeedFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC8B3C42152EDF70061D01A /* FeedFetcher.swift */; };
 		5FC8B3C72152EF8D0061D01A /* FeedPreferenceReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC8B3C62152EF8D0061D01A /* FeedPreferenceReader.swift */; };
+		5FD13604215E9AB50041AA9B /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD13602215E9AB50041AA9B /* HeaderView.swift */; };
+		5FD136062162849E0041AA9B /* AutoLayoutCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD136052162849E0041AA9B /* AutoLayoutCollectionView.swift */; };
+		5FD136082162880F0041AA9B /* CustomLayoutDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD136072162880F0041AA9B /* CustomLayoutDelegate.swift */; };
+		5FD1360A216288DD0041AA9B /* CustomLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD13609216288DD0041AA9B /* CustomLayout.swift */; };
+		5FD1360C2162AFD70041AA9B /* CustomMultipleColumnLayoutAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD1360B2162AFD70041AA9B /* CustomMultipleColumnLayoutAttributes.swift */; };
 		5FEEB9F3215C063300E03C77 /* Plugin1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FEEB9F2215C063300E03C77 /* Plugin1.swift */; };
 		5FEEB9F6215C2AA800E03C77 /* AddressOf.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FEEB9F5215C2AA800E03C77 /* AddressOf.swift */; };
 		5FEEB9FA215C2EA400E03C77 /* View2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FEEB9F8215C2EA400E03C77 /* View2.swift */; };
@@ -49,7 +54,7 @@
 		067323009B13EA5051AF4C0A /* Pods-App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-App.release.xcconfig"; path = "Pods/Target Support Files/Pods-App/Pods-App.release.xcconfig"; sourceTree = "<group>"; };
 		094C2F5F05164E2D583EDF66 /* Pods-App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-App.debug.xcconfig"; path = "Pods/Target Support Files/Pods-App/Pods-App.debug.xcconfig"; sourceTree = "<group>"; };
 		3A0B4D2B8AD1B8934987A8FB /* Pods-AppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AppTests/Pods-AppTests.release.xcconfig"; sourceTree = "<group>"; };
-		5F9155FB215BF302002133AB /* WrapperCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WrapperCellView.swift; sourceTree = "<group>"; };
+		5F9155FB215BF302002133AB /* HandlerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandlerCell.swift; sourceTree = "<group>"; };
 		5F9155FE215BF4B0002133AB /* View1.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = View1.xib; sourceTree = "<group>"; };
 		5F915600215BF4CA002133AB /* View1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View1.swift; sourceTree = "<group>"; };
 		5FA60E5A21557992001F6939 /* PluginLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PluginLoader.swift; sourceTree = "<group>"; };
@@ -72,6 +77,12 @@
 		5FC8B3C22152E7BD0061D01A /* preferences.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = preferences.json; sourceTree = "<group>"; };
 		5FC8B3C42152EDF70061D01A /* FeedFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedFetcher.swift; sourceTree = "<group>"; };
 		5FC8B3C62152EF8D0061D01A /* FeedPreferenceReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedPreferenceReader.swift; sourceTree = "<group>"; };
+		5FD13602215E9AB50041AA9B /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HeaderView.swift; path = "/Users/ilanl/Documents/Commandor-App-iOS/App/Layout/HeaderView.swift"; sourceTree = "<absolute>"; };
+		5FD13603215E9AB50041AA9B /* HeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = HeaderView.xib; path = "/Users/ilanl/Documents/Commandor-App-iOS/App/Layout/HeaderView.xib"; sourceTree = "<absolute>"; };
+		5FD136052162849E0041AA9B /* AutoLayoutCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoLayoutCollectionView.swift; sourceTree = "<group>"; };
+		5FD136072162880F0041AA9B /* CustomLayoutDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLayoutDelegate.swift; sourceTree = "<group>"; };
+		5FD13609216288DD0041AA9B /* CustomLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLayout.swift; sourceTree = "<group>"; };
+		5FD1360B2162AFD70041AA9B /* CustomMultipleColumnLayoutAttributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMultipleColumnLayoutAttributes.swift; sourceTree = "<group>"; };
 		5FEEB9F2215C063300E03C77 /* Plugin1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plugin1.swift; sourceTree = "<group>"; };
 		5FEEB9F5215C2AA800E03C77 /* AddressOf.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressOf.swift; sourceTree = "<group>"; };
 		5FEEB9F8215C2EA400E03C77 /* View2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = View2.swift; sourceTree = "<group>"; };
@@ -113,31 +124,27 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		5F9155FA215BF235002133AB /* IB */ = {
+		5F9155FA215BF235002133AB /* Layout */ = {
 			isa = PBXGroup;
 			children = (
-				5F9155FD215BF495002133AB /* Plugins */,
-				5F9155FB215BF302002133AB /* WrapperCellView.swift */,
+				5FD13602215E9AB50041AA9B /* HeaderView.swift */,
+				5FD13603215E9AB50041AA9B /* HeaderView.xib */,
+				5F9155FB215BF302002133AB /* HandlerCell.swift */,
+				5FD136052162849E0041AA9B /* AutoLayoutCollectionView.swift */,
+				5FD136072162880F0041AA9B /* CustomLayoutDelegate.swift */,
+				5FD13609216288DD0041AA9B /* CustomLayout.swift */,
+				5FD1360B2162AFD70041AA9B /* CustomMultipleColumnLayoutAttributes.swift */,
 			);
-			path = IB;
+			path = Layout;
 			sourceTree = "<group>";
 		};
-		5F9155FD215BF495002133AB /* Plugins */ = {
+		5F9155FD215BF495002133AB /* External-Plugins */ = {
 			isa = PBXGroup;
 			children = (
 				5FEEB9F7215C2E5B00E03C77 /* Plugin2 */,
 				5FEEB9F1215C061C00E03C77 /* Plugin1 */,
 			);
-			path = Plugins;
-			sourceTree = "<group>";
-		};
-		5FA60E592155795F001F6939 /* Plugins */ = {
-			isa = PBXGroup;
-			children = (
-				5FA60E5A21557992001F6939 /* PluginLoader.swift */,
-				5FA60E5C215579B0001F6939 /* CommandActionRepository.swift */,
-			);
-			path = Plugins;
+			path = "External-Plugins";
 			sourceTree = "<group>";
 		};
 		5FC8B36921519DA00061D01A = {
@@ -145,6 +152,7 @@
 			children = (
 				5FC8B3C22152E7BD0061D01A /* preferences.json */,
 				5FC8B3BC2152C7A80061D01A /* feed.json */,
+				5F9155FD215BF495002133AB /* External-Plugins */,
 				5FC8B37421519DA00061D01A /* App */,
 				5FC8B38921519DA10061D01A /* AppTests */,
 				5FC8B37321519DA00061D01A /* Products */,
@@ -166,11 +174,8 @@
 			isa = PBXGroup;
 			children = (
 				5FEEB9F4215C2A9300E03C77 /* Helpers */,
-				5F9155FA215BF235002133AB /* IB */,
-				5FA60E592155795F001F6939 /* Plugins */,
-				5FC8B3C82152EF930061D01A /* Feed */,
-				5FC8B3BF2152D3A50061D01A /* Decodables */,
-				5FC8B3BA2152B4FA0061D01A /* Search */,
+				5F9155FA215BF235002133AB /* Layout */,
+				5FC8B3BA2152B4FA0061D01A /* DataSource */,
 				5FC8B37521519DA00061D01A /* AppDelegate.swift */,
 				5FC8B37721519DA00061D01A /* ViewController.swift */,
 				5FC8B37921519DA00061D01A /* Main.storyboard */,
@@ -190,31 +195,19 @@
 			path = AppTests;
 			sourceTree = "<group>";
 		};
-		5FC8B3BA2152B4FA0061D01A /* Search */ = {
-			isa = PBXGroup;
-			children = (
-				5FC8B3B12152B1F40061D01A /* SearchResults.swift */,
-				5FC8B3B22152B1F40061D01A /* SearchApi.swift */,
-			);
-			path = Search;
-			sourceTree = "<group>";
-		};
-		5FC8B3BF2152D3A50061D01A /* Decodables */ = {
+		5FC8B3BA2152B4FA0061D01A /* DataSource */ = {
 			isa = PBXGroup;
 			children = (
 				5FC8B3C02152D3D50061D01A /* HandlerJson.swift */,
-			);
-			path = Decodables;
-			sourceTree = "<group>";
-		};
-		5FC8B3C82152EF930061D01A /* Feed */ = {
-			isa = PBXGroup;
-			children = (
 				5FC8B3B32152B1F40061D01A /* ActionWrapper.swift */,
 				5FC8B3C42152EDF70061D01A /* FeedFetcher.swift */,
 				5FC8B3C62152EF8D0061D01A /* FeedPreferenceReader.swift */,
+				5FA60E5A21557992001F6939 /* PluginLoader.swift */,
+				5FA60E5C215579B0001F6939 /* CommandActionRepository.swift */,
+				5FC8B3B12152B1F40061D01A /* SearchResults.swift */,
+				5FC8B3B22152B1F40061D01A /* SearchApi.swift */,
 			);
-			path = Feed;
+			path = DataSource;
 			sourceTree = "<group>";
 		};
 		5FEEB9F1215C061C00E03C77 /* Plugin1 */ = {
@@ -422,15 +415,20 @@
 				5FC8B37821519DA00061D01A /* ViewController.swift in Sources */,
 				5FEEB9F6215C2AA800E03C77 /* AddressOf.swift in Sources */,
 				5FA60E5D215579B0001F6939 /* CommandActionRepository.swift in Sources */,
+				5FD136062162849E0041AA9B /* AutoLayoutCollectionView.swift in Sources */,
 				5FC8B3B42152B1F40061D01A /* SearchResults.swift in Sources */,
 				5FC8B3C72152EF8D0061D01A /* FeedPreferenceReader.swift in Sources */,
+				5FD1360A216288DD0041AA9B /* CustomLayout.swift in Sources */,
 				5F915601215BF4CA002133AB /* View1.swift in Sources */,
-				5F9155FC215BF302002133AB /* WrapperCellView.swift in Sources */,
+				5FD13604215E9AB50041AA9B /* HeaderView.swift in Sources */,
+				5FD136082162880F0041AA9B /* CustomLayoutDelegate.swift in Sources */,
+				5F9155FC215BF302002133AB /* HandlerCell.swift in Sources */,
 				5FC8B3C52152EDF70061D01A /* FeedFetcher.swift in Sources */,
 				5FA60E5B21557992001F6939 /* PluginLoader.swift in Sources */,
 				5FEEB9FB215C2EA400E03C77 /* Plugin2.swift in Sources */,
 				5FC8B3C12152D3D50061D01A /* HandlerJson.swift in Sources */,
 				5FC8B3B52152B1F40061D01A /* SearchApi.swift in Sources */,
+				5FD1360C2162AFD70041AA9B /* CustomMultipleColumnLayoutAttributes.swift in Sources */,
 				5FEEB9FA215C2EA400E03C77 /* View2.swift in Sources */,
 				5FC8B3B62152B1F40061D01A /* ActionWrapper.swift in Sources */,
 				5FEEB9F3215C063300E03C77 /* Plugin1.swift in Sources */,
@@ -598,13 +596,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 7YYP7DZYT3;
+				DEVELOPMENT_TEAM = DWHB82A2JA;
 				INFOPLIST_FILE = App/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.ilanL.App;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ilanl.App;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -617,13 +615,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 7YYP7DZYT3;
+				DEVELOPMENT_TEAM = DWHB82A2JA;
 				INFOPLIST_FILE = App/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.ilanL.App;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ilanl.App;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";

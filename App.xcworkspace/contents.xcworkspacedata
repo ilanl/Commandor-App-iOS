@@ -2,6 +2,12 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:/Users/ilanl/Documents/Commandor-App-iOS/App/Layout/HeaderView.swift">
+   </FileRef>
+   <FileRef
+      location = "group:/Users/ilanl/Documents/Commandor-App-iOS/App/Layout/HeaderView.xib">
+   </FileRef>
+   <FileRef
       location = "group:App.xcodeproj">
    </FileRef>
    <FileRef

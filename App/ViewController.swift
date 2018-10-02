@@ -9,14 +9,14 @@
 import UIKit
 import Commandor
 
-class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     // MARK: - Properties
-    fileprivate let reuseIdentifier = "WrapperCell"
+    fileprivate let reuseIdentifier = "HandlerCell"
     
     //MARK: UICollectionView Events
     public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let cell = collectionView.cellForItem(at: indexPath) as! WrapperCellView
+        let cell = collectionView.cellForItem(at: indexPath) as! HandlerCell
         cell.handler.onClick(window: collectionView.window!) { (window, error) in
             print("back to main")
         }
@@ -28,7 +28,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! WrapperCellView
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! HandlerCell
         
         let handler = searchResults!.searchResults[indexPath.item].handler
         let contentView = handler!.getView(superView: cell)
@@ -44,6 +44,8 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        collectionView?.backgroundColor = .clear
+        collectionView?.contentInset = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
         
         self.collectionView.delegate = self
         
@@ -55,11 +57,11 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
             
             guard let wSelf = self else { return }
             wSelf.collectionView.dataSource = self
+            wSelf.collectionView.invalidateIntrinsicContentSize()
+            
             wSelf.collectionView.reloadData()
             wSelf.searchResults = results
         })
     }
-    
-    
 }
 

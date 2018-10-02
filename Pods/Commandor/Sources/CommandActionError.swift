@@ -7,7 +7,7 @@
 
 import Foundation
 
-@objc public class HandlerError: NSObject, LocalizedError {
+@objc public class CommandActionError: NSObject, LocalizedError {
     
     var _desc: String
     public init(message: String) {
