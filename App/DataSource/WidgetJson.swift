@@ -1,6 +1,6 @@
 
 import Foundation
 
-struct HandlerJson: Decodable {
+struct WidgetJson: Decodable {
     let handler: String
 }

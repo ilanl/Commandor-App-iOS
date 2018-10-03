@@ -8,7 +8,7 @@
 import Foundation
 
 /// If no url is given fallback to default feed from disk
-class FeedFetcher {
+class WidgetSync {
     
     func getData(url: URL? = nil) -> [[String: Any]] {
         

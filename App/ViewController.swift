@@ -13,8 +13,8 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     
     //MARK: CustomLayoutDelegate
     public func getPreferredHeightForView(indexPath: IndexPath, width: CGFloat) -> CGFloat {
-        let handler = searchResults!.searchResults[indexPath.item].handler
-        let aspect = handler!.layout.aspect
+        let widget = searchResults![indexPath.item]
+        let aspect = widget.layout.aspect
         return width * aspect
     }
     
@@ -31,18 +31,19 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     
     //MARK: UICollectionViewDataSource
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return searchResults!.searchResults.count
+        return searchResults!.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! WidgetCell
         
-        let handler = searchResults!.searchResults[indexPath.item].handler
-        let contentView = handler!.getView(superView: cell)
+        let widget = searchResults![indexPath.item]
+        let contentView = widget.getView(superView: cell)
         
+        // TODO: check adding with constraints and instrinsinc size
         cell.contentView.addSubview(contentView)
-        cell.handler = handler
+        cell.handler = widget
         
         return cell
     }

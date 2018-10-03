@@ -11,7 +11,7 @@ import Commandor
 //import VideoPlayerCommandor
 
 class AppContainer {
-    var commandRepository: CommandActionRepository?
+    var widgetRepository: WidgetRepository?
 }
 
 protocol AppContainerDelegate: class {
@@ -27,7 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, AppContainerDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        self.container.commandRepository = CommandActionRepository()
+        self.container.widgetRepository = WidgetRepository()
         return true
     }
 

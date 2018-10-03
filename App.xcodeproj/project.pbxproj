@@ -11,7 +11,7 @@
 		5F9155FF215BF4B0002133AB /* View1.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F9155FE215BF4B0002133AB /* View1.xib */; };
 		5F915601215BF4CA002133AB /* View1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F915600215BF4CA002133AB /* View1.swift */; };
 		5FA60E5B21557992001F6939 /* PluginLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA60E5A21557992001F6939 /* PluginLoader.swift */; };
-		5FA60E5D215579B0001F6939 /* CommandActionRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA60E5C215579B0001F6939 /* CommandActionRepository.swift */; };
+		5FA60E5D215579B0001F6939 /* WidgetRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA60E5C215579B0001F6939 /* WidgetRepository.swift */; };
 		5FC8B37621519DA00061D01A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC8B37521519DA00061D01A /* AppDelegate.swift */; };
 		5FC8B37821519DA00061D01A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC8B37721519DA00061D01A /* ViewController.swift */; };
 		5FC8B37B21519DA00061D01A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5FC8B37921519DA00061D01A /* Main.storyboard */; };
@@ -22,10 +22,8 @@
 		5FC8B3B52152B1F40061D01A /* SearchApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC8B3B22152B1F40061D01A /* SearchApi.swift */; };
 		5FC8B3B62152B1F40061D01A /* ActionWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC8B3B32152B1F40061D01A /* ActionWrapper.swift */; };
 		5FC8B3BD2152C7A80061D01A /* feed.json in Resources */ = {isa = PBXBuildFile; fileRef = 5FC8B3BC2152C7A80061D01A /* feed.json */; };
-		5FC8B3C12152D3D50061D01A /* HandlerJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC8B3C02152D3D50061D01A /* HandlerJson.swift */; };
-		5FC8B3C32152E7BD0061D01A /* preferences.json in Resources */ = {isa = PBXBuildFile; fileRef = 5FC8B3C22152E7BD0061D01A /* preferences.json */; };
-		5FC8B3C52152EDF70061D01A /* FeedFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC8B3C42152EDF70061D01A /* FeedFetcher.swift */; };
-		5FC8B3C72152EF8D0061D01A /* FeedPreferenceReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC8B3C62152EF8D0061D01A /* FeedPreferenceReader.swift */; };
+		5FC8B3C12152D3D50061D01A /* WidgetJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC8B3C02152D3D50061D01A /* WidgetJson.swift */; };
+		5FC8B3C52152EDF70061D01A /* WidgetSync.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC8B3C42152EDF70061D01A /* WidgetSync.swift */; };
 		5FD136062162849E0041AA9B /* WidgetCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD136052162849E0041AA9B /* WidgetCollectionView.swift */; };
 		5FD1360A216288DD0041AA9B /* WidgetPinterestLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD13609216288DD0041AA9B /* WidgetPinterestLayout.swift */; };
 		5FEEB9F3215C063300E03C77 /* Plugin1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FEEB9F2215C063300E03C77 /* Plugin1.swift */; };
@@ -53,7 +51,7 @@
 		5F9155FE215BF4B0002133AB /* View1.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = View1.xib; sourceTree = "<group>"; };
 		5F915600215BF4CA002133AB /* View1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View1.swift; sourceTree = "<group>"; };
 		5FA60E5A21557992001F6939 /* PluginLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PluginLoader.swift; sourceTree = "<group>"; };
-		5FA60E5C215579B0001F6939 /* CommandActionRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandActionRepository.swift; sourceTree = "<group>"; };
+		5FA60E5C215579B0001F6939 /* WidgetRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetRepository.swift; sourceTree = "<group>"; };
 		5FC8B37221519DA00061D01A /* App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = App.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FC8B37521519DA00061D01A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5FC8B37721519DA00061D01A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -68,10 +66,8 @@
 		5FC8B3B22152B1F40061D01A /* SearchApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchApi.swift; sourceTree = "<group>"; };
 		5FC8B3B32152B1F40061D01A /* ActionWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionWrapper.swift; sourceTree = "<group>"; };
 		5FC8B3BC2152C7A80061D01A /* feed.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = feed.json; sourceTree = "<group>"; };
-		5FC8B3C02152D3D50061D01A /* HandlerJson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandlerJson.swift; sourceTree = "<group>"; };
-		5FC8B3C22152E7BD0061D01A /* preferences.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = preferences.json; sourceTree = "<group>"; };
-		5FC8B3C42152EDF70061D01A /* FeedFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedFetcher.swift; sourceTree = "<group>"; };
-		5FC8B3C62152EF8D0061D01A /* FeedPreferenceReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedPreferenceReader.swift; sourceTree = "<group>"; };
+		5FC8B3C02152D3D50061D01A /* WidgetJson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetJson.swift; sourceTree = "<group>"; };
+		5FC8B3C42152EDF70061D01A /* WidgetSync.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetSync.swift; sourceTree = "<group>"; };
 		5FD136052162849E0041AA9B /* WidgetCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetCollectionView.swift; sourceTree = "<group>"; };
 		5FD13609216288DD0041AA9B /* WidgetPinterestLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetPinterestLayout.swift; sourceTree = "<group>"; };
 		5FEEB9F2215C063300E03C77 /* Plugin1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plugin1.swift; sourceTree = "<group>"; };
@@ -148,7 +144,6 @@
 		5FC8B36921519DA00061D01A = {
 			isa = PBXGroup;
 			children = (
-				5FC8B3C22152E7BD0061D01A /* preferences.json */,
 				5FC8B3BC2152C7A80061D01A /* feed.json */,
 				5F9155FD215BF495002133AB /* External-Plugins */,
 				5FC8B37421519DA00061D01A /* App */,
@@ -196,12 +191,11 @@
 		5FC8B3BA2152B4FA0061D01A /* DataSource */ = {
 			isa = PBXGroup;
 			children = (
-				5FC8B3C02152D3D50061D01A /* HandlerJson.swift */,
+				5FC8B3C02152D3D50061D01A /* WidgetJson.swift */,
 				5FC8B3B32152B1F40061D01A /* ActionWrapper.swift */,
-				5FC8B3C42152EDF70061D01A /* FeedFetcher.swift */,
-				5FC8B3C62152EF8D0061D01A /* FeedPreferenceReader.swift */,
+				5FC8B3C42152EDF70061D01A /* WidgetSync.swift */,
 				5FA60E5A21557992001F6939 /* PluginLoader.swift */,
-				5FA60E5C215579B0001F6939 /* CommandActionRepository.swift */,
+				5FA60E5C215579B0001F6939 /* WidgetRepository.swift */,
 				5FC8B3B12152B1F40061D01A /* SearchResults.swift */,
 				5FC8B3B22152B1F40061D01A /* SearchApi.swift */,
 			);
@@ -322,7 +316,6 @@
 			files = (
 				5FC8B38021519DA10061D01A /* LaunchScreen.storyboard in Resources */,
 				5FEEB9FD215C2F9A00E03C77 /* View2.xib in Resources */,
-				5FC8B3C32152E7BD0061D01A /* preferences.json in Resources */,
 				5F9155FF215BF4B0002133AB /* View1.xib in Resources */,
 				5FC8B37D21519DA10061D01A /* Assets.xcassets in Resources */,
 				5FC8B37B21519DA00061D01A /* Main.storyboard in Resources */,
@@ -403,17 +396,16 @@
 			files = (
 				5FC8B37821519DA00061D01A /* ViewController.swift in Sources */,
 				5FEEB9F6215C2AA800E03C77 /* GlobalFuncs+Address.swift in Sources */,
-				5FA60E5D215579B0001F6939 /* CommandActionRepository.swift in Sources */,
+				5FA60E5D215579B0001F6939 /* WidgetRepository.swift in Sources */,
 				5FD136062162849E0041AA9B /* WidgetCollectionView.swift in Sources */,
 				5FC8B3B42152B1F40061D01A /* SearchResults.swift in Sources */,
-				5FC8B3C72152EF8D0061D01A /* FeedPreferenceReader.swift in Sources */,
 				5FD1360A216288DD0041AA9B /* WidgetPinterestLayout.swift in Sources */,
 				5F915601215BF4CA002133AB /* View1.swift in Sources */,
 				5F9155FC215BF302002133AB /* WidgetCell.swift in Sources */,
-				5FC8B3C52152EDF70061D01A /* FeedFetcher.swift in Sources */,
+				5FC8B3C52152EDF70061D01A /* WidgetSync.swift in Sources */,
 				5FA60E5B21557992001F6939 /* PluginLoader.swift in Sources */,
 				5FEEB9FB215C2EA400E03C77 /* Plugin2.swift in Sources */,
-				5FC8B3C12152D3D50061D01A /* HandlerJson.swift in Sources */,
+				5FC8B3C12152D3D50061D01A /* WidgetJson.swift in Sources */,
 				5FC8B3B52152B1F40061D01A /* SearchApi.swift in Sources */,
 				5FEEB9FA215C2EA400E03C77 /* View2.swift in Sources */,
 				5FC8B3B62152B1F40061D01A /* ActionWrapper.swift in Sources */,

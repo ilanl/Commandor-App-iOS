@@ -1,14 +1,7 @@
-//
-//  CommandRepository.swift
-//  App
-//
-//  Created by IlanL on 21/09/2018.
-//  Copyright © 2018 IlanL Ltd. All rights reserved.
-//
 
 import Commandor
 
-class CommandActionRepository {
+class WidgetRepository {
     
     private (set) var map: [String:WidgetProtocol.Type] = [:]
     
