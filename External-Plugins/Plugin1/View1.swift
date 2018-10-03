@@ -8,6 +8,6 @@
 
 import Commandor
 
-class View1: CommandView {
+class View1: WidgetView {
 
 }

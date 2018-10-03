@@ -8,13 +8,21 @@
 
 import Commandor
 
-public class Plugin1: CommandActionProtocol {
+public class Plugin1: WidgetProtocol {
+    public var layout: WidgetViewLayout {
+        get {
+            let wide = (self.json["wide"] as? Bool) == true
+            let aspect: CGFloat = 3/4
+            return WidgetViewLayout(aspect: aspect, isWide: wide)
+        }
+    }
+    
     
     public static func getSupportedDescriptor() -> String {
         return "handler1"
     }
     
-    public func onClick(window: UIWindow, completion: (UIWindow, CommandActionError?) -> Void) {
+    public func onClick(window: UIWindow, completion: (UIWindow, WidgetError?) -> Void) {
         //
         print("click1 \(address(o: self))")
         

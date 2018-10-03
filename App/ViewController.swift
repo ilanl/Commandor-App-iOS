@@ -9,7 +9,14 @@
 import UIKit
 import Commandor
 
-class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, CustomLayoutDelegate {
+    
+    //MARK: CustomLayoutDelegate
+    public func getPreferredHeightForView(indexPath: IndexPath, width: CGFloat) -> CGFloat {
+        let handler = searchResults!.searchResults[indexPath.item].handler
+        let aspect = handler!.layout.aspect
+        return width * aspect
+    }
     
     // MARK: - Properties
     fileprivate let reuseIdentifier = "HandlerCell"
@@ -28,10 +35,12 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! HandlerCell
         
         let handler = searchResults!.searchResults[indexPath.item].handler
         let contentView = handler!.getView(superView: cell)
+        
         cell.contentView.addSubview(contentView)
         cell.handler = handler
         
@@ -56,11 +65,17 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
             }
             
             guard let wSelf = self else { return }
+            
+            let layout = CustomLayout()
+            layout.delegate = wSelf
+            
+            wSelf.searchResults = results
+            wSelf.collectionView.collectionViewLayout = layout
             wSelf.collectionView.dataSource = self
             wSelf.collectionView.invalidateIntrinsicContentSize()
             
             wSelf.collectionView.reloadData()
-            wSelf.searchResults = results
+            
         })
     }
 }

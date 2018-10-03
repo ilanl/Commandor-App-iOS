@@ -10,7 +10,7 @@ import UIKit
 import Commandor
 
 class HandlerCell: UICollectionViewCell {
-    var handler: CommandActionProtocol!
+    var handler: WidgetProtocol!
     @IBOutlet weak var containerView: UIView!
     
     override func awakeFromNib() {

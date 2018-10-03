@@ -23,7 +23,7 @@ func randomAlphaNumericString(length: Int) -> String {
     return randomString
 }
 
-class View2: CommandView {
+class View2: WidgetView {
 
     @IBOutlet weak var label: UILabel!
     

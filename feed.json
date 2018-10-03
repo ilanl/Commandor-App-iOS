@@ -6,7 +6,8 @@
         "summary": "Using App-Prefs to open settings, not availale on iOS 10 ..",
         "scheme": "App-Prefs:root=WIFI",
         "force-handler": "YouTubeVideoPlayer",
-        "src": "https://www.youtube.com/watch?v=oQg4VCw24Qo"
+        "src": "https://www.youtube.com/watch?v=oQg4VCw24Qo",
+        "wide": true
     },
     {
         "type": "handler1",
@@ -23,7 +24,8 @@
         "coordinates": {
             "lat": 100,
             "lon": 34
-        }
+        },
+        "wide": true
     },
     {
         "type": "handler1",

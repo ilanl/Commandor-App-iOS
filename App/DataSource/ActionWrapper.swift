@@ -2,8 +2,8 @@ import Commandor
 
 class ActionWrapper: Equatable {
     
-    var handler: CommandActionProtocol!
-    init (handler:CommandActionProtocol) {
+    var handler: WidgetProtocol!
+    init (handler:WidgetProtocol) {
         self.handler = handler
     }
 }

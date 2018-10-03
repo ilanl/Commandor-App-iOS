@@ -1,12 +1,9 @@
-//
-//  CustomLayout.swift
-//  App
-//
-//  Created by IlanL on 01/10/2018.
-//  Copyright © 2018 IlanL Ltd. All rights reserved.
-//
-
+// TODO: Add credits to Git ...
 import UIKit
+
+protocol CustomLayoutDelegate: class {
+    func getPreferredHeightForView(indexPath: IndexPath, width: CGFloat) -> CGFloat
+}
 
 class CustomLayout: UICollectionViewLayout {
     
@@ -16,7 +13,7 @@ class CustomLayout: UICollectionViewLayout {
     var cellPadding: CGFloat = 3
     
     // MARK: Layout
-    private var cache = [CustomMultipleColumnLayoutAttributes]()
+    private var cache = [UICollectionViewLayoutAttributes]()
     private var contentHeight: CGFloat = 0
     private var width: CGFloat {
         get {
@@ -57,7 +54,7 @@ class CustomLayout: UICollectionViewLayout {
     }
     
     override func layoutAttributesForItem(at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
-        let attributes = CustomMultipleColumnLayoutAttributes(forCellWith: indexPath)
+        let attributes = UICollectionViewLayoutAttributes(forCellWith: indexPath)
         let frame = CGRect(x: -231, y: -231, width: 1, height: 1).insetBy(dx: cellPadding, dy: cellPadding)
         attributes.frame = frame
         return attributes
@@ -81,24 +78,20 @@ class CustomLayout: UICollectionViewLayout {
             var column = 0
             for item in 0..<collectionView.numberOfItems(inSection: 0) {
                 let indexPath = IndexPath(item: item, section: 0)
-//                let width = columnWidth - (cellPadding * 2)
+                let width = columnWidth - (cellPadding * 2)
                 
                 // Calculate height
-                let photoHeight = delegate?.collectionView(collectionView, heightForPhotoAtIndexPath: indexPath) ?? CGFloat(integerLiteral: Int.random(in: 50 ..< 100))
+                let preferredHeight = delegate!.getPreferredHeightForView(indexPath: indexPath, width: width)
                 
-                let annotationHeight = delegate?.collectionView(collectionView, heightForAnnotationAtIndexPath: indexPath) ?? CGFloat(integerLiteral: Int.random(in: 50 ..< 100))
-                
-                let height: CGFloat = cellPadding + photoHeight + annotationHeight + cellPadding
+                let height: CGFloat = cellPadding + preferredHeight + cellPadding
                 
                 let frame = CGRect(x: xOffsets[column],
                        y: yOffsets[column],
                        width: columnWidth,
                        height: height).insetBy(dx: cellPadding, dy: cellPadding)
                 
-                let attributes = CustomMultipleColumnLayoutAttributes(forCellWith: indexPath)
+                let attributes = UICollectionViewLayoutAttributes(forCellWith: indexPath)
                 attributes.frame = frame
-                attributes.photoHeight = photoHeight
-                attributes.annotationHeight = annotationHeight
                 
                 cache.append(attributes)
                 

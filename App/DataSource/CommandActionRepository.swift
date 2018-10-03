@@ -10,11 +10,11 @@ import Commandor
 
 class CommandActionRepository {
     
-    private (set) var map: [String:CommandActionProtocol.Type] = [:]
+    private (set) var map: [String:WidgetProtocol.Type] = [:]
     
     init() {
         
-        let arrayOfPlugins = PluginLoader().getClassesByProtocol(p: Commandor.CommandActionProtocol.self) as! [CommandActionProtocol.Type]
+        let arrayOfPlugins = PluginLoader().getClassesByProtocol(p: Commandor.WidgetProtocol.self) as! [WidgetProtocol.Type]
         arrayOfPlugins.forEach { (t) in
             map[t.getSupportedDescriptor()] = t
         }
