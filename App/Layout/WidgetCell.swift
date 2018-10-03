@@ -9,7 +9,7 @@
 import UIKit
 import Commandor
 
-class HandlerCell: UICollectionViewCell {
+class WidgetCell: UICollectionViewCell {
     var handler: WidgetProtocol!
     @IBOutlet weak var containerView: UIView!
     

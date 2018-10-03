@@ -1,14 +1,14 @@
 // TODO: Add credits to Git ...
 import UIKit
 
-protocol CustomLayoutDelegate: class {
+protocol WidgetPinterestLayoutDelegate: class {
     func getPreferredHeightForView(indexPath: IndexPath, width: CGFloat) -> CGFloat
 }
 
-class CustomLayout: UICollectionViewLayout {
+class WidgetPinterestLayout: UICollectionViewLayout {
     
     // MARK: Public API
-    weak var delegate: CustomLayoutDelegate?
+    weak var delegate: WidgetPinterestLayoutDelegate?
     var numberOfColumns = 2
     var cellPadding: CGFloat = 3
     

@@ -9,7 +9,7 @@
 import UIKit
 import Commandor
 
-class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, CustomLayoutDelegate {
+class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, WidgetPinterestLayoutDelegate {
     
     //MARK: CustomLayoutDelegate
     public func getPreferredHeightForView(indexPath: IndexPath, width: CGFloat) -> CGFloat {
@@ -19,11 +19,11 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     }
     
     // MARK: - Properties
-    fileprivate let reuseIdentifier = "HandlerCell"
+    fileprivate let reuseIdentifier = "WidgetCell"
     
     //MARK: UICollectionView Events
     public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let cell = collectionView.cellForItem(at: indexPath) as! HandlerCell
+        let cell = collectionView.cellForItem(at: indexPath) as! WidgetCell
         cell.handler.onClick(window: collectionView.window!) { (window, error) in
             print("back to main")
         }
@@ -36,7 +36,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! HandlerCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! WidgetCell
         
         let handler = searchResults!.searchResults[indexPath.item].handler
         let contentView = handler!.getView(superView: cell)
@@ -66,7 +66,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
             
             guard let wSelf = self else { return }
             
-            let layout = CustomLayout()
+            let layout = WidgetPinterestLayout()
             layout.delegate = wSelf
             
             wSelf.searchResults = results

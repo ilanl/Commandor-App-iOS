@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AutoLayoutCollectionView: UICollectionView {
+class WidgetCollectionView: UICollectionView {
     
     private var shouldInvalidateLayout = false
     
