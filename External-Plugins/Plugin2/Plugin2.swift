@@ -9,7 +9,7 @@
 import Commandor
 
 public class Plugin2: WidgetProtocol {
-    public var layout: WidgetViewLayout {
+    public var layout: WidgetViewLayout? {
         get {
             let wide = (self.json["wide"] as? Bool) == true
             let aspect: CGFloat = 1

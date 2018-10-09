@@ -1,8 +1,14 @@
 // TODO: Add credits to Git ...
 import UIKit
 
+struct PreferredLayout {
+    var aspect: CGFloat
+    var isWide: Bool
+}
+
 protocol WidgetPinterestLayoutDelegate: class {
-    func getPreferredHeightForView(indexPath: IndexPath, width: CGFloat) -> CGFloat
+    
+    func getPreferredLayout(for indexPath: IndexPath) -> PreferredLayout?
 }
 
 class WidgetPinterestLayout: UICollectionViewLayout {
@@ -81,7 +87,7 @@ class WidgetPinterestLayout: UICollectionViewLayout {
                 let width = columnWidth - (cellPadding * 2)
                 
                 // Calculate height
-                let preferredHeight = delegate!.getPreferredHeightForView(indexPath: indexPath, width: width)
+                let preferredHeight = delegate!.getPreferredLayout(for: indexPath)!.aspect * width
                 
                 let height: CGFloat = cellPadding + preferredHeight + cellPadding
                 

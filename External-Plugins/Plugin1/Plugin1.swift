@@ -9,10 +9,10 @@
 import Commandor
 
 public class Plugin1: WidgetProtocol {
-    public var layout: WidgetViewLayout {
+    public var layout: WidgetViewLayout? {
         get {
             let wide = (self.json["wide"] as? Bool) == true
-            let aspect: CGFloat = 3/4
+            let aspect: CGFloat = CGFloat(Float.random(in: 0 ..< 1))
             return WidgetViewLayout(aspect: aspect, isWide: wide)
         }
     }

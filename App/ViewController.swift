@@ -11,11 +11,12 @@ import Commandor
 
 class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, WidgetPinterestLayoutDelegate {
     
-    //MARK: CustomLayoutDelegate
-    public func getPreferredHeightForView(indexPath: IndexPath, width: CGFloat) -> CGFloat {
+    func getPreferredLayout(for indexPath: IndexPath) -> PreferredLayout? {
         let widget = searchResults![indexPath.item]
-        let aspect = widget.layout.aspect
-        return width * aspect
+        guard let layout = widget.layout else {
+            return nil
+        }
+        return PreferredLayout(aspect: layout.aspect, isWide: layout.isWide)
     }
     
     // MARK: - Properties
