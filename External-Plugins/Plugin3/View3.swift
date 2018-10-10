@@ -11,7 +11,7 @@ class View3: UIView {
         
         view.collectionView.dataSource = view
         
-        let cellSize = CGSize(width: 100, height: 100)
+        let cellSize = CGSize(width: view.frame.height*0.9, height: view.frame.height*0.9)
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         layout.itemSize = cellSize
