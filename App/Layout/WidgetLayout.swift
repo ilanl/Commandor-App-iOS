@@ -7,6 +7,7 @@ protocol WidgetFlowLayoutDelegate: class {
 }
 
 extension MainWidgetViewController: WidgetFlowLayoutDelegate {
+    
     //    TODO: add doc
     func getFittedSizeFor(for indexPath: IndexPath, width: CGFloat) -> CGSize? {
         
@@ -59,6 +60,16 @@ class WidgetLayout: UICollectionViewLayout {
         }
         let insets = collectionView.contentInset
         return collectionView.bounds.width - (insets.left + insets.right)
+    }
+    
+    func resetAllCache() {
+        self.cache.removeAll()
+        self.column = 0
+        self.yOffset = [CGFloat]()
+        self.maxColumnY = [CGFloat]()
+        self.xOffset = [CGFloat]()
+        self.columnWidth = 0
+        self.preparedItems.removeAll()
     }
     
     override var collectionViewContentSize: CGSize {
@@ -146,6 +157,7 @@ class WidgetLayout: UICollectionViewLayout {
         return cache[indexPath.item]
     }
     
+    // MARK: Animation: Insert/Delete
     override func prepare(forCollectionViewUpdates updateItems: [UICollectionViewUpdateItem]) {
         super.prepare(forCollectionViewUpdates: updateItems)
         

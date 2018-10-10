@@ -46,6 +46,23 @@ extension MainWidgetViewController: UICollectionViewDelegate {
             print("back to main")
         }
     }
+    
+    @objc func handleLongGesture(gesture: UILongPressGestureRecognizer) {
+        switch(gesture.state) {
+            
+        case .began:
+            guard let selectedIndexPath = collectionView.indexPathForItem(at: gesture.location(in: collectionView)) else {
+                break
+            }
+            collectionView.beginInteractiveMovementForItem(at: selectedIndexPath)
+        case .changed:
+            collectionView.updateInteractiveMovementTargetPosition(gesture.location(in: gesture.view!))
+        case .ended:
+            collectionView.endInteractiveMovement()
+        default:
+            collectionView.cancelInteractiveMovement()
+        }
+    }
 }
 
 class MainWidgetViewController: UIViewController {
@@ -64,7 +81,7 @@ class MainWidgetViewController: UIViewController {
     private let reuseIdentifier = "WidgetCell"
     var sections : [Section] = []
     var gameTimer: Timer!
-
+    var longPressGesture: UILongPressGestureRecognizer!
     
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -92,8 +109,12 @@ class MainWidgetViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(self.handleLongGesture(gesture:)))
+        collectionView.addGestureRecognizer(longPressGesture)
+        
         gameTimer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(runTimedCode), userInfo: nil, repeats: true)
-
+        gameTimer.invalidate() // Timer stopped
+        
         if let patternImage = UIImage(named: "Pattern") {
             view.backgroundColor = UIColor(patternImage: patternImage)
         }
@@ -126,5 +147,27 @@ class MainWidgetViewController: UIViewController {
             wSelf.collectionView.reloadData()
         })
     }
+    
+    // MARK: Reorder Items
+    
+    func collectionView(_ collectionView: UICollectionView, canMoveItemAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, moveItemAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        print("Starting Index: \(sourceIndexPath.item)")
+        print("Ending Index: \(destinationIndexPath.item)")
+        let movingItem = self.sections[sourceIndexPath.section].itemData[sourceIndexPath.row]
+        self.sections[sourceIndexPath.section].itemData.remove(at: sourceIndexPath.row)
+        print(movingItem.name)
+        self.sections[sourceIndexPath.section].itemData.insert(movingItem, at: destinationIndexPath.row)
+        
+        let layout = self.collectionView.collectionViewLayout as! WidgetLayout
+        layout.resetAllCache()
+        
+        // need to invalidate all layout
+        self.collectionView.reloadItems(at: [sourceIndexPath, destinationIndexPath])
+    }
+    
 }
 
