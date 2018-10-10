@@ -3,17 +3,17 @@ import UIKit
 
 protocol WidgetFlowLayoutDelegate: class {
     
-    func getFittedSizeFor(for indexPath: IndexPath, width: CGFloat) -> CGSize?
+    func getFittedLayout(for indexPath: IndexPath, width: CGFloat) -> ItemLayout
 }
 
 extension MainWidgetViewController: WidgetFlowLayoutDelegate {
     
     //    TODO: add doc
-    func getFittedSizeFor(for indexPath: IndexPath, width: CGFloat) -> CGSize? {
+    func getFittedLayout(for indexPath: IndexPath, width: CGFloat) -> ItemLayout {
         
-        let cachedSize = self.sections[indexPath.section].itemData[indexPath.row].size
-        if cachedSize != .zero {
-            return cachedSize
+        var cachedLayout = self.sections[indexPath.section].itemData[indexPath.row].layout
+        if cachedLayout != nil, cachedLayout!.size != .zero {
+            return cachedLayout!
         }
         
         let item = self.sections[indexPath.section].itemData[indexPath.row]
@@ -21,11 +21,13 @@ extension MainWidgetViewController: WidgetFlowLayoutDelegate {
         let contentView = widget!.getView()
         let sz = contentView.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize)
         
+        // proportions
         let height = ceil(width*sz.height/sz.width)
-        let fitSize = CGSize(width: width, height: height)
-        self.sections[indexPath.section].itemData[indexPath.row].size = fitSize
-        print("[Debug Size] [\(indexPath.section),\(indexPath.row)] -> \(fitSize)")
-        return fitSize
+        
+        cachedLayout = ItemLayout(size: CGSize(width: width, height: height), isWide: widget!.layout!.isWide)
+        self.sections[indexPath.section].itemData[indexPath.row].layout = cachedLayout
+        print("[Debug Size] [\(indexPath.section),\(indexPath.row)] -> \(String(describing: cachedLayout))")
+        return cachedLayout!
     }
 }
 
@@ -79,10 +81,17 @@ class WidgetLayout: UICollectionViewLayout {
     func prepareItem(indexPath: IndexPath) {
         
         // 4. Asks the delegate for the height of the view for the given column width
-        let minHeight = delegate.getFittedSizeFor(for: indexPath, width: columnWidth)!.height
-        let height = cellPadding * 2 + minHeight
+        let preferredLayout = delegate.getFittedLayout(for: indexPath, width: columnWidth)
+        let minHeight = preferredLayout.size.height
         
-        let frame = CGRect(x: xOffset[column], y: yOffset[column], width: columnWidth, height: height)
+        let height = cellPadding * 2 + minHeight
+        var width = columnWidth
+        
+        if preferredLayout.isWide {
+             width = self.collectionView!.frame.width - self.collectionView!.contentInset.left - self.collectionView!.contentInset.right
+        }
+        
+        let frame = CGRect(x: xOffset[column], y: yOffset[column], width: width, height: height)
         let insetFrame = frame.insetBy(dx: cellPadding, dy: cellPadding)
         
         // 5. Creates an UICollectionViewLayoutItem with the frame and add it to the cache
@@ -95,6 +104,12 @@ class WidgetLayout: UICollectionViewLayout {
         
         let newColumY = yOffset[column] + height
         yOffset[column] = newColumY
+        
+        if (preferredLayout.isWide) {
+            for (index, _) in yOffset.enumerated() {
+                yOffset[index] = newColumY
+            }
+        }
         
         print("Debug Y [\(indexPath.section),\(indexPath.row)] -> \(newColumY)")
         

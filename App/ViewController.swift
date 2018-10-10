@@ -65,17 +65,23 @@ extension MainWidgetViewController: UICollectionViewDelegate {
     }
 }
 
+struct Item {
+    var handler: WidgetProtocol?
+    var name : String
+    var layout : ItemLayout?
+}
+
+struct ItemLayout {
+    var size: CGSize
+    var isWide: Bool
+}
+
+struct Section {
+    var sectionName : String
+    var itemData : [Item]
+}
+
 class MainWidgetViewController: UIViewController {
-    
-    struct Item {
-        var handler: WidgetProtocol?
-        var name : String
-        var size : CGSize
-    }
-    struct Section {
-        var sectionName : String
-        var itemData : [Item]
-    }
     
     // MARK: - Properties
     private let reuseIdentifier = "WidgetCell"
@@ -96,7 +102,7 @@ class MainWidgetViewController: UIViewController {
             let countItemsInSection = self.collectionView(self.collectionView, numberOfItemsInSection: 0)
             let id = "added \(countItemsInSection)"
             
-            self.sections[section].itemData.append(Item(handler: Plugin2(json: ["id": id, "lines": 4]), name: id, size: .zero)) //add your object to data source first
+            self.sections[section].itemData.append(Item(handler: Plugin2(json: ["id": id, "lines": 4]), name: id, layout: nil)) //add your object to data source first
             
             print("New count: \(countItemsInSection)")
             
@@ -133,9 +139,9 @@ class MainWidgetViewController: UIViewController {
             results?.results.forEach({ (w) in
                 
                 if (i == 1) {
-                    wSelf.sections.append(MainWidgetViewController.Section(sectionName: "Section \(i)", itemData: []))
+                    wSelf.sections.append(Section(sectionName: "Section \(i)", itemData: []))
                 }
-                wSelf.sections[0].itemData.append(MainWidgetViewController.Item(handler: w, name: w.getIdentifier(), size: .zero))
+                wSelf.sections[0].itemData.append(Item(handler: w, name: w.getIdentifier(), layout: nil))
                 i += 1
             })
             
@@ -151,7 +157,7 @@ class MainWidgetViewController: UIViewController {
     // MARK: Reorder Items
     
     func collectionView(_ collectionView: UICollectionView, canMoveItemAt indexPath: IndexPath) -> Bool {
-        return true
+        return indexPath != IndexPath(item: 0, section: 0)
     }
     
     func collectionView(_ collectionView: UICollectionView, moveItemAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
