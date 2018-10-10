@@ -1,14 +1,12 @@
-//
-//  Plugin1.swift
-//  App
-//
-//  Created by IlanL on 26/09/2018.
-//  Copyright © 2018 IlanL Ltd. All rights reserved.
-//
 
 import Commandor
 
-public class Plugin3: WidgetProtocol {
+public class ActionContainerWidget: WidgetProtocol {
+    
+    public var type: WidgetType {
+        get { return .placeholder }
+    }
+    
     public var layout: WidgetViewLayout? {
         get {
             return WidgetViewLayout(isWide: true)
@@ -16,7 +14,7 @@ public class Plugin3: WidgetProtocol {
     }
     
     public static func getSupportedDescriptor() -> String {
-        return "handler3"
+        return "action-container"
     }
     
     public func onClick(window: UIWindow, completion: (UIWindow, WidgetError?) -> Void) {
@@ -36,14 +34,14 @@ public class Plugin3: WidgetProtocol {
         return self.id
     }
     
-    var _view: View3?
+    var _view: ActionContainerView?
     public func getView() -> UIView {
         
         guard self._view == nil else {
             return self._view!
         }
         
-        self._view = View3.create()
+        self._view = ActionContainerView.create()
         return self._view!
     }
 }

@@ -42,8 +42,11 @@ extension MainWidgetViewController: UICollectionViewDelegate {
     
     public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath) as! WidgetCell
-        cell.handler.onClick(window: collectionView.window!) { (window, error) in
-            print("back to main")
+        
+        if ([.action, .story].contains(cell.handler.type)) {
+            cell.handler.onClick(window: collectionView.window!) { (window, error) in
+                print("back to main")
+            }
         }
     }
     

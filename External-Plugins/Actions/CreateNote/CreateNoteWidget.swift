@@ -1,28 +1,19 @@
-//
-//  Plugin1.swift
-//  App
-//
-//  Created by IlanL on 26/09/2018.
-//  Copyright © 2018 IlanL Ltd. All rights reserved.
-//
 
 import Commandor
 
-public class Plugin1: WidgetProtocol {
-    
+public class CreateNoteWidget: WidgetProtocol {
     public var type: WidgetType {
-        get { return .story }
+        get { return .action }
     }
     
     public var layout: WidgetViewLayout? {
         get {
-            let wide = (self.json["wide"] as? Bool) == true
-            return WidgetViewLayout(isWide: wide)
+            return WidgetViewLayout(isWide: false)
         }
     }
     
     public static func getSupportedDescriptor() -> String {
-        return "handler1"
+        return "create-note"
     }
     
     public func onClick(window: UIWindow, completion: (UIWindow, WidgetError?) -> Void) {
@@ -56,13 +47,13 @@ public class Plugin1: WidgetProtocol {
         return self.id
     }
     
-    var _view: View1?
+    var _view: CreateNoteView?
     public func getView() -> UIView {
         guard self._view != nil else {
             return self._view!
         }
         
-        self._view = View1.create()
+        self._view = CreateNoteView.create()
         return self._view!
     }
 }

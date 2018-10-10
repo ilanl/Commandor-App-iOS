@@ -1,13 +1,13 @@
 import Commandor
 
-class View3: UIView {
+class ActionContainerView: UIView {
     
     @IBOutlet weak var collectionView: UICollectionView!
     var items: [String] = ["1", "2", "3", "5"]
     
-    class func create() -> View3 {
-        let myClassNib = UINib(nibName: "View3", bundle: nil)
-        let view = myClassNib.instantiate(withOwner: nil, options: nil)[0] as! View3
+    class func create() -> ActionContainerView {
+        let myClassNib = UINib(nibName: "ActionContainer", bundle: nil)
+        let view = myClassNib.instantiate(withOwner: nil, options: nil)[0] as! ActionContainerView
         
         view.collectionView.dataSource = view
         
@@ -29,7 +29,7 @@ class View3: UIView {
     }
 }
 
-extension View3 : UICollectionViewDataSource {
+extension ActionContainerView : UICollectionViewDataSource {
     
     func fetchData() {
         collectionView.reloadData()

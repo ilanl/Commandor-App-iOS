@@ -9,6 +9,11 @@
 import Commandor
 
 public class Plugin2: WidgetProtocol {
+    
+    public var type: WidgetType {
+        get { return .story }
+    }
+    
     public var layout: WidgetViewLayout? {
         get {
             let wide = (self.json["wide"] as? Bool) == true
