@@ -8,6 +8,10 @@
 
 import Commandor
 
-class View1: WidgetView {
-
+class View1: UIView {
+    class func create() -> View1 {
+        let myClassNib = UINib(nibName: "View1", bundle: nil)
+        let view = myClassNib.instantiate(withOwner: nil, options: nil)[0] as! View1
+        return view
+    }
 }

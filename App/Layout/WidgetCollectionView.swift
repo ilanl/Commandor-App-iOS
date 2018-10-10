@@ -11,7 +11,7 @@ import UIKit
 class WidgetCollectionView: UICollectionView {
     
     private var shouldInvalidateLayout = false
-    
+
     override func layoutSubviews() {
         super.layoutSubviews()
         if shouldInvalidateLayout {

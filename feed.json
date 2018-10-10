@@ -1,117 +1,108 @@
 [
     {
-        "type": "handler1",
-        "id":"id-1111",
-        "title": "Opens Wifi",
-        "summary": "Using App-Prefs to open settings, not availale on iOS 10 ..",
-        "scheme": "App-Prefs:root=WIFI",
-        "force-handler": "YouTubeVideoPlayer",
-        "src": "https://www.youtube.com/watch?v=oQg4VCw24Qo",
-        "wide": true
-    },
-    {
-        "type": "handler1",
-        "id":"id-ABCD1",
+        "type": "handler2",
+        "id":"1",
         "title": "Opens Photos",
         "summary": "Using App-Prefs to open photos, not availale on iOS 10 ..",
         "scheme": "App-Prefs:root=Photos",
-        "src": "http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4"
+        "src": "http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4",
+        "lines": 20
     },
     {
         "type": "handler2",
-        "id":"id-HANDLER22",
+        "id":"2",
         "type": "show-on-map",
         "coordinates": {
             "lat": 100,
             "lon": 34
         },
-        "wide": true
+        "lines": 10
     },
     {
-        "type": "handler1",
-        "id":"id-1111A",
+        "type": "handler2",
+        "id":"3",
         "title": "Opens Wifi",
         "summary": "Using App-Prefs to open settings, not availale on iOS 10 ..",
         "scheme": "App-Prefs:root=WIFI",
         "force-handler": "YouTubeVideoPlayer",
-        "src": "https://www.youtube.com/watch?v=oQg4VCw24Qo"
+        "src": "https://www.youtube.com/watch?v=oQg4VCw24Qo",
+        "lines": 10
     },
     {
-        "type": "handler1",
-        "id":"id-1111SSS",
+        "type": "handler2",
+        "id":"4",
         "title": "Opens Wifi",
         "summary": "Using App-Prefs to open settings, not availale on iOS 10 ..",
         "scheme": "App-Prefs:root=WIFI",
         "force-handler": "YouTubeVideoPlayer",
-        "src": "https://www.youtube.com/watch?v=oQg4VCw24Qo"
+        "src": "https://www.youtube.com/watch?v=oQg4VCw24Qo",
+        "lines": 2
     },
     {
-        "type": "handler1",
-        "id":"id-1111uuuuu",
+        "type": "handler2",
+        "id":"5",
         "title": "Opens Wifi",
         "summary": "Using App-Prefs to open settings, not availale on iOS 10 ..",
         "scheme": "App-Prefs:root=WIFI",
         "force-handler": "YouTubeVideoPlayer",
-        "src": "https://www.youtube.com/watch?v=oQg4VCw24Qo"
-    },
-    {
-        "type": "handler1",
-        "id":"id-ABCD-ssss",
-        "title": "Opens Photos",
-        "summary": "Using App-Prefs to open photos, not availale on iOS 10 ..",
-        "scheme": "App-Prefs:root=Photos",
-        "src": "http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4"
+        "src": "https://www.youtube.com/watch?v=oQg4VCw24Qo",
+        "lines": 6
     },
     {
         "type": "handler2",
-        "id":"id-HANDLER2-hhhh",
+        "id":"6",
+        "title": "Opens Photos",
+        "summary": "Using App-Prefs to open photos, not availale on iOS 10 ..",
+        "scheme": "App-Prefs:root=Photos",
+        "src": "http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4",
+        "lines": 10
+    },
+    {
+        "type": "handler2",
+        "id":"7",
         "type": "show-on-map",
         "coordinates": {
             "lat": 100,
             "lon": 34
-        }
-    },
-    {
-        "type": "handler1",
-        "id":"id-ABCD",
-        "title": "Opens Photos",
-        "summary": "Using App-Prefs to open photos, not availale on iOS 10 ..",
-        "scheme": "App-Prefs:root=Photos",
-        "src": "http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4"
+        },
+        "lines": 8
     },
     {
         "type": "handler2",
-        "id":"id-HANDLER2",
+        "id":"8",
+        "title": "Opens Photos",
+        "summary": "Using App-Prefs to open photos, not availale on iOS 10 ..",
+        "scheme": "App-Prefs:root=Photos",
+        "src": "http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4",
+        "lines": 10
+    },
+    {
+        "type": "handler2",
+        "id":"9",
         "type": "show-on-map",
         "coordinates": {
             "lat": 100,
             "lon": 34
-        }
-    },
-    {
-        "type": "handler1",
-        "id":"id-ABCD",
-        "title": "Opens Photos",
-        "summary": "Using App-Prefs to open photos, not availale on iOS 10 ..",
-        "scheme": "App-Prefs:root=Photos",
-        "src": "http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4"
+        },
+        "lines": 5
     },
     {
         "type": "handler2",
-        "id":"id-HANDLER2",
+        "id":"10",
+        "title": "Opens Photos",
+        "summary": "Using App-Prefs to open photos, not availale on iOS 10 ..",
+        "scheme": "App-Prefs:root=Photos",
+        "src": "http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4",
+        "lines": 10
+    },
+    {
+        "type": "handler2",
+        "id":"11",
         "type": "show-on-map",
         "coordinates": {
             "lat": 100,
             "lon": 34
-        }
-    },
-    {
-        "type": "open-url-scheme",
-        "title": "Open Wifi",
-        "background-color": "#0000FF",
-        "url": {
-            "app-name": "myapp",
-            "query": "hello=1"
-        }
+        },
+        "lines": 30
     }
 ]

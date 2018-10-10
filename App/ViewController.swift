@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  MainWidgetViewController.swift
 //  App
 //
 //  Created by IlanL on 18/09/2018.
@@ -9,75 +9,121 @@
 import UIKit
 import Commandor
 
-class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, WidgetPinterestLayoutDelegate {
+extension MainWidgetViewController: UICollectionViewDataSource {
     
-    func getPreferredLayout(for indexPath: IndexPath) -> PreferredLayout? {
-        let widget = searchResults![indexPath.item]
-        guard let layout = widget.layout else {
-            return nil
-        }
-        return PreferredLayout(aspect: layout.aspect, isWide: layout.isWide)
+    public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return self.sections[section].itemData.count
     }
     
-    // MARK: - Properties
-    fileprivate let reuseIdentifier = "WidgetCell"
+    public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! WidgetCell
+        
+        let item = self.sections[indexPath.section].itemData[indexPath.row]
+        let widget = item.handler
+        let newView = widget!.getView()
+        
+        let topConstraint = NSLayoutConstraint(item: newView, attribute: .top, relatedBy: .equal, toItem: cell.containerView, attribute: .top, multiplier: 1, constant: 0)
+        let bottomConstraint = NSLayoutConstraint(item: newView, attribute: .bottom, relatedBy: .equal, toItem: cell.containerView, attribute: .bottom, multiplier: 1, constant: 0)
+        let leadingConstraint = NSLayoutConstraint(item: newView, attribute: .leading, relatedBy: .equal, toItem: cell.containerView, attribute: .leading, multiplier: 1, constant: 0)
+        let trailingConstraint = NSLayoutConstraint(item: newView, attribute: .trailing, relatedBy: .equal, toItem: cell.containerView, attribute: .trailing, multiplier: 1, constant: 0)
+        
+        newView.translatesAutoresizingMaskIntoConstraints = false
+        
+        cell.containerView.addSubview(newView)
+        cell.containerView.addConstraints([topConstraint, bottomConstraint, leadingConstraint, trailingConstraint])
+        cell.containerView.layoutIfNeeded()
+        cell.handler = widget
+        
+        return cell
+    }
+}
+
+extension MainWidgetViewController: UICollectionViewDelegate {
     
-    //MARK: UICollectionView Events
     public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath) as! WidgetCell
         cell.handler.onClick(window: collectionView.window!) { (window, error) in
             print("back to main")
         }
     }
+}
+
+class MainWidgetViewController: UIViewController {
     
-    //MARK: UICollectionViewDataSource
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return searchResults!.count
+    struct Item {
+        var handler: WidgetProtocol?
+        var name : String
+        var size : CGSize
+    }
+    struct Section {
+        var sectionName : String
+        var itemData : [Item]
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! WidgetCell
-        
-        let widget = searchResults![indexPath.item]
-        let contentView = widget.getView(superView: cell)
-        
-        // TODO: check adding with constraints and instrinsinc size
-        cell.contentView.addSubview(contentView)
-        cell.handler = widget
-        
-        return cell
-    }
-    
-    var searchResults: SearchResults?
+    // MARK: - Properties
+    private let reuseIdentifier = "WidgetCell"
+    var sections : [Section] = []
+    var gameTimer: Timer!
+
     
     @IBOutlet weak var collectionView: UICollectionView!
     
+    override var preferredStatusBarStyle : UIStatusBarStyle {
+        return UIStatusBarStyle.lightContent
+    }
+
+    @objc func runTimedCode() {
+        print("bla")
+        self.collectionView?.performBatchUpdates({
+            let section = 0
+            let countItemsInSection = self.collectionView(self.collectionView, numberOfItemsInSection: 0)
+            let id = "added \(countItemsInSection)"
+            
+            self.sections[section].itemData.append(Item(handler: Plugin2(json: ["id": id, "lines": 4]), name: id, size: .zero)) //add your object to data source first
+            
+            print("New count: \(countItemsInSection)")
+            
+            let indexPath = IndexPath(item: countItemsInSection, section: section)
+            
+            self.collectionView?.insertItems(at: [indexPath])
+        }, completion: nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        collectionView?.backgroundColor = .clear
-        collectionView?.contentInset = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
         
-        self.collectionView.delegate = self
+        gameTimer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(runTimedCode), userInfo: nil, repeats: true)
+
+        if let patternImage = UIImage(named: "Pattern") {
+            view.backgroundColor = UIColor(patternImage: patternImage)
+        }
+        collectionView?.backgroundColor = UIColor.clear
+        collectionView?.contentInset = UIEdgeInsets(top: 23, left: 10, bottom: 10, right: 10)
         
         SearchApi().query(nil, completion: { [weak self] (results, error) in
             guard error == nil else {
-                                    print(error!.localizedDescription)
-                                    return
+                print(error!.localizedDescription)
+                return
             }
             
             guard let wSelf = self else { return }
             
-            let layout = WidgetPinterestLayout()
+            var i: Int = 1
+            results?.results.forEach({ (w) in
+                
+                if (i == 1) {
+                    wSelf.sections.append(MainWidgetViewController.Section(sectionName: "Section \(i)", itemData: []))
+                }
+                wSelf.sections[0].itemData.append(MainWidgetViewController.Item(handler: w, name: w.getIdentifier(), size: .zero))
+                i += 1
+            })
+            
+            let layout = WidgetLayout()
             layout.delegate = wSelf
-            
-            wSelf.searchResults = results
             wSelf.collectionView.collectionViewLayout = layout
-            wSelf.collectionView.dataSource = self
-            wSelf.collectionView.invalidateIntrinsicContentSize()
-            
+            wSelf.collectionView.dataSource = wSelf
+            wSelf.collectionView.delegate = wSelf
             wSelf.collectionView.reloadData()
-            
         })
     }
 }

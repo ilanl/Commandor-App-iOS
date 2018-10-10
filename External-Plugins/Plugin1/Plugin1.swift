@@ -53,13 +53,13 @@ public class Plugin1: WidgetProtocol {
         return self.id
     }
     
-    var _view: UIView?
-    public func getView(superView: UIView) -> UIView {
-        
-        if _view == nil {
-            let frame = superView.bounds
-            _view = View1(frame: frame)
+    var _view: View1?
+    public func getView() -> UIView {
+        guard self._view != nil else {
+            return self._view!
         }
-        return _view!
+        
+        self._view = View1.create()
+        return self._view!
     }
 }

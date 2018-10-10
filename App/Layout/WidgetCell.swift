@@ -11,8 +11,9 @@ import Commandor
 
 class WidgetCell: UICollectionViewCell {
     var handler: WidgetProtocol!
-    @IBOutlet weak var containerView: UIView!
+    var margin: CGFloat { get{ return 4 } }
     
+    @IBOutlet weak var containerView: UIView!
     override func awakeFromNib() {
         super.awakeFromNib()
         containerView.layer.cornerRadius = 6
