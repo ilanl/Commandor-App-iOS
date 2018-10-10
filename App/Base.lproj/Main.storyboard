@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Main Widget View Controller-->
         <scene sceneID="NGa-Ee-9zG">
             <objects>
-                <viewController id="au9-TL-9Rg" customClass="ViewController" customModule="App" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="au9-TL-9Rg" customClass="MainWidgetViewController" customModule="App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="a85-Ib-i0W">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -20,7 +20,7 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="E1y-xt-9Db" customClass="WidgetCollectionView" customModule="App" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="z3a-Vd-i9r">
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="z3a-Vd-i9r">
                                     <size key="itemSize" width="177" height="177"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -34,18 +34,18 @@
                                             <rect key="frame" x="0.0" y="0.0" width="177" height="177"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view clipsSubviews="YES" contentMode="scaleAspectFit" verticalHuggingPriority="251" verticalCompressionResistancePriority="500" placeholderIntrinsicWidth="177" placeholderIntrinsicHeight="177" translatesAutoresizingMaskIntoConstraints="NO" id="L5W-Vd-8G4">
-                                                    <rect key="frame" x="0.0" y="0.0" width="177" height="177"/>
+                                                <view contentMode="scaleAspectFit" verticalCompressionResistancePriority="500" translatesAutoresizingMaskIntoConstraints="NO" id="L5W-Vd-8G4">
+                                                    <rect key="frame" x="4" y="4" width="169" height="169"/>
                                                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </view>
                                             </subviews>
                                         </view>
                                         <color key="backgroundColor" red="1" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="L5W-Vd-8G4" secondAttribute="trailing" id="asO-m1-JBC"/>
-                                            <constraint firstAttribute="bottom" secondItem="L5W-Vd-8G4" secondAttribute="bottom" id="avh-md-aFO"/>
-                                            <constraint firstItem="L5W-Vd-8G4" firstAttribute="leading" secondItem="GYG-xW-a9w" secondAttribute="leading" id="nSx-Fk-vzI"/>
-                                            <constraint firstItem="L5W-Vd-8G4" firstAttribute="top" secondItem="GYG-xW-a9w" secondAttribute="top" id="roT-FO-LkY"/>
+                                            <constraint firstAttribute="trailing" secondItem="L5W-Vd-8G4" secondAttribute="trailing" constant="4" id="asO-m1-JBC"/>
+                                            <constraint firstAttribute="bottom" secondItem="L5W-Vd-8G4" secondAttribute="bottom" constant="4" id="avh-md-aFO"/>
+                                            <constraint firstItem="L5W-Vd-8G4" firstAttribute="leading" secondItem="GYG-xW-a9w" secondAttribute="leading" constant="4" id="nSx-Fk-vzI"/>
+                                            <constraint firstItem="L5W-Vd-8G4" firstAttribute="top" secondItem="GYG-xW-a9w" secondAttribute="top" constant="4" id="roT-FO-LkY"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="containerView" destination="L5W-Vd-8G4" id="tKW-Nm-rMh"/>

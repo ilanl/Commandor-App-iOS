@@ -8,34 +8,21 @@
 
 import Commandor
 
-func randomAlphaNumericString(length: Int) -> String {
-    let allowedChars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
-    let allowedCharsCount = UInt32(allowedChars.characters.count)
-    var randomString = ""
-    
-    for _ in 0..<length {
-        let randomNum = Int(arc4random_uniform(allowedCharsCount))
-        let randomIndex = allowedChars.index(allowedChars.startIndex, offsetBy: randomNum)
-        let newCharacter = allowedChars[randomIndex]
-        randomString += String(newCharacter)
+func randomText(numOfLines: Int) -> String {
+    var text = ""
+    for _ in 0..<numOfLines {
+        text += "Hello Again!! \(numOfLines)\n"
     }
     
-    return randomString
+    return text
 }
 
-class View2: WidgetView {
+class View2: UIView {
 
     @IBOutlet weak var label: UILabel!
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        let text = randomAlphaNumericString(length: Int.random(in: 1..<100))
-        print(text)
-        self.label.text = text
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-    }
-    
-}
+    class func create() -> View2 {
+        let myClassNib = UINib(nibName: "View2", bundle: nil)
+        let view = myClassNib.instantiate(withOwner: nil, options: nil)[0] as! View2
+        return view
+    }}

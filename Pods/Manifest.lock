@@ -2,15 +2,15 @@ PODS:
   - Commandor (0.2.3)
 
 DEPENDENCIES:
-  - Commandor
+  - Commandor (from `/Users/ilanl/Documents/Commandor-iOS/`)
 
-SPEC REPOS:
-  https://github.com/ilanl/pod-specs.git:
-    - Commandor
+EXTERNAL SOURCES:
+  Commandor:
+    :path: "/Users/ilanl/Documents/Commandor-iOS/"
 
 SPEC CHECKSUMS:
   Commandor: 6b8cac057599e640a7cd7f940d87347f8c9fef9a
 
-PODFILE CHECKSUM: 051bb36142e39cb6d2f5143109aeff7bc5003553
+PODFILE CHECKSUM: 7fc81216d93ded6c2c1ce4a54c6120b716600f28
 
 COCOAPODS: 1.5.3

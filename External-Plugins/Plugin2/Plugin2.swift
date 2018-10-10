@@ -28,23 +28,27 @@ public class Plugin2: WidgetProtocol {
     
     private var id: String
     private var json: [String: Any]
+    private var lines: Int
     
     public required init?(json: [String : Any]) {
         self.json = json
         self.id = self.json["id"] as! String
+        self.lines = self.json["lines"] as! Int
     }
     
     public func getIdentifier() -> String {
         return self.id
     }
     
-    var _view: UIView?
-    public func getView(superView: UIView) -> UIView {
+    var _view: View2?
+    public func getView() -> UIView {
         
-        if _view == nil {
-            let frame = superView.bounds
-            _view = View2(frame: frame)
+        guard self._view == nil else {
+            return self._view!
         }
-        return _view!
+        
+        self._view = View2.create()
+        self._view?.label.text = "\(self.id)\(randomText(numOfLines: self.lines))"
+        return self._view!
     }
 }
