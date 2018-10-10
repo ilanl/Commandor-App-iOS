@@ -10,6 +10,8 @@
 		5F26E2CF216DC17800BFE774 /* View3.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F26E2CE216DC17800BFE774 /* View3.xib */; };
 		5F26E2D1216DC18700BFE774 /* View3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F26E2D0216DC18700BFE774 /* View3.swift */; };
 		5F26E2D3216DC19E00BFE774 /* Plugin3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F26E2D2216DC19E00BFE774 /* Plugin3.swift */; };
+		5F2D95B2216E6BA30060A816 /* WidgetActionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F2D95B1216E6BA30060A816 /* WidgetActionCell.swift */; };
+		5F2D95B8216E7AF70060A816 /* WidgetActionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F2D95B7216E7AF70060A816 /* WidgetActionCell.xib */; };
 		5F9155FC215BF302002133AB /* WidgetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9155FB215BF302002133AB /* WidgetCell.swift */; };
 		5F9155FF215BF4B0002133AB /* View1.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F9155FE215BF4B0002133AB /* View1.xib */; };
 		5F915601215BF4CA002133AB /* View1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F915600215BF4CA002133AB /* View1.swift */; };
@@ -52,6 +54,8 @@
 		5F26E2CE216DC17800BFE774 /* View3.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = View3.xib; sourceTree = "<group>"; };
 		5F26E2D0216DC18700BFE774 /* View3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View3.swift; sourceTree = "<group>"; };
 		5F26E2D2216DC19E00BFE774 /* Plugin3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plugin3.swift; sourceTree = "<group>"; };
+		5F2D95B1216E6BA30060A816 /* WidgetActionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetActionCell.swift; sourceTree = "<group>"; };
+		5F2D95B7216E7AF70060A816 /* WidgetActionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WidgetActionCell.xib; sourceTree = "<group>"; };
 		5F9155FB215BF302002133AB /* WidgetCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetCell.swift; sourceTree = "<group>"; };
 		5F9155FE215BF4B0002133AB /* View1.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = View1.xib; sourceTree = "<group>"; };
 		5F915600215BF4CA002133AB /* View1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View1.swift; sourceTree = "<group>"; };
@@ -118,11 +122,21 @@
 		5F26E2CD216DC15700BFE774 /* Plugin3 */ = {
 			isa = PBXGroup;
 			children = (
+				5F2D95AE216E6B620060A816 /* ActionCell */,
 				5F26E2CE216DC17800BFE774 /* View3.xib */,
 				5F26E2D0216DC18700BFE774 /* View3.swift */,
 				5F26E2D2216DC19E00BFE774 /* Plugin3.swift */,
 			);
 			path = Plugin3;
+			sourceTree = "<group>";
+		};
+		5F2D95AE216E6B620060A816 /* ActionCell */ = {
+			isa = PBXGroup;
+			children = (
+				5F2D95B1216E6BA30060A816 /* WidgetActionCell.swift */,
+				5F2D95B7216E7AF70060A816 /* WidgetActionCell.xib */,
+			);
+			path = ActionCell;
 			sourceTree = "<group>";
 		};
 		5F9155FA215BF235002133AB /* Layout */ = {
@@ -335,6 +349,7 @@
 				5FC8B37B21519DA00061D01A /* Main.storyboard in Resources */,
 				5F26E2CF216DC17800BFE774 /* View3.xib in Resources */,
 				5FC8B3BD2152C7A80061D01A /* feed.json in Resources */,
+				5F2D95B8216E7AF70060A816 /* WidgetActionCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -419,6 +434,7 @@
 				5F26E2D1216DC18700BFE774 /* View3.swift in Sources */,
 				5F915601215BF4CA002133AB /* View1.swift in Sources */,
 				5F9155FC215BF302002133AB /* WidgetCell.swift in Sources */,
+				5F2D95B2216E6BA30060A816 /* WidgetActionCell.swift in Sources */,
 				5FC8B3C52152EDF70061D01A /* WidgetSync.swift in Sources */,
 				5FA60E5B21557992001F6939 /* PluginLoader.swift in Sources */,
 				5FEEB9FB215C2EA400E03C77 /* Plugin2.swift in Sources */,

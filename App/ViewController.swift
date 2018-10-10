@@ -94,7 +94,7 @@ class MainWidgetViewController: UIViewController {
     override var preferredStatusBarStyle : UIStatusBarStyle {
         return UIStatusBarStyle.lightContent
     }
-
+    
     @objc func runTimedCode() {
         print("bla")
         self.collectionView?.performBatchUpdates({

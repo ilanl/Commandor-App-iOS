@@ -22,7 +22,11 @@ extension MainWidgetViewController: WidgetFlowLayoutDelegate {
         let sz = contentView.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize)
         
         // proportions
-        let height = ceil(width*sz.height/sz.width)
+        var height = ceil(width*sz.height/sz.width)
+        
+        if (widget!.layout!.isWide) {
+            height = contentView.frame.height * 1.1
+        }
         
         cachedLayout = ItemLayout(size: CGSize(width: width, height: height), isWide: widget!.layout!.isWide)
         self.sections[indexPath.section].itemData[indexPath.row].layout = cachedLayout
@@ -103,6 +107,7 @@ class WidgetLayout: UICollectionViewLayout {
         contentHeight = max(contentHeight, frame.maxY)
         
         let newColumY = yOffset[column] + height
+        
         yOffset[column] = newColumY
         
         if (preferredLayout.isWide) {
