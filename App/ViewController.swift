@@ -115,7 +115,7 @@ class MainWidgetViewController: UIViewController {
         gameTimer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(runTimedCode), userInfo: nil, repeats: true)
         gameTimer.invalidate() // Timer stopped
         
-        if let patternImage = UIImage(named: "Pattern") {
+        if let patternImage = UIImage(named: "Background_Pattern") {
             view.backgroundColor = UIColor(patternImage: patternImage)
         }
         collectionView?.backgroundColor = UIColor.clear
