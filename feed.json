@@ -6,7 +6,7 @@
         "summary": "Using App-Prefs to open photos, not availale on iOS 10 ..",
         "scheme": "App-Prefs:root=Photos",
         "src": "http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4",
-        "lines": 20
+        "lines": 100
     },
     {
         "type": "handler2",
@@ -26,7 +26,7 @@
         "scheme": "App-Prefs:root=WIFI",
         "force-handler": "YouTubeVideoPlayer",
         "src": "https://www.youtube.com/watch?v=oQg4VCw24Qo",
-        "lines": 10
+        "lines": 5
     },
     {
         "type": "handler2",
@@ -65,7 +65,7 @@
             "lat": 100,
             "lon": 34
         },
-        "lines": 8
+        "lines": 80
     },
     {
         "type": "handler2",

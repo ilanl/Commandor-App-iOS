@@ -50,6 +50,9 @@ class WidgetLayout: UICollectionViewLayout {
     fileprivate var columnWidth: CGFloat = 0
     fileprivate var preparedItems = [IndexPath]()
     
+    fileprivate var deleteIndexPaths = [IndexPath]()
+    fileprivate var insertIndexPath = [IndexPath]()
+    
     fileprivate var contentWidth: CGFloat {
         guard let collectionView = collectionView else {
             return 0
@@ -141,6 +144,60 @@ class WidgetLayout: UICollectionViewLayout {
             prepareItem(indexPath: indexPath)
         }
         return cache[indexPath.item]
-}
-
+    }
+    
+    override func prepare(forCollectionViewUpdates updateItems: [UICollectionViewUpdateItem]) {
+        super.prepare(forCollectionViewUpdates: updateItems)
+        
+        self.deleteIndexPaths = []
+        self.insertIndexPath = []
+        
+        updateItems.forEach { (updateItem) in
+            let action = updateItem.updateAction
+            
+            switch(action) {
+            case .delete:
+                self.deleteIndexPaths.append(updateItem.indexPathBeforeUpdate!)
+                return
+            case .insert:
+                self.insertIndexPath.append(updateItem.indexPathAfterUpdate!)
+                return
+            default:
+                return
+            }
+        }
+    }
+    
+    override func finalizeCollectionViewUpdates() {
+        super.finalizeCollectionViewUpdates()
+        self.deleteIndexPaths = []
+        self.insertIndexPath = []
+    }
+    
+    override func initialLayoutAttributesForAppearingItem(at itemIndexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
+        var attributes = super.initialLayoutAttributesForAppearingItem(at: itemIndexPath)
+        if self.insertIndexPath.contains(itemIndexPath) {
+            if (attributes == nil) {
+                attributes = self.layoutAttributesForItem(at: itemIndexPath)
+            }
+            
+            attributes?.alpha = 0
+            // TODO: change this
+//            attributes?.center = self.collectionView!.center
+        }
+        return attributes
+    }
+    
+    override func finalLayoutAttributesForDisappearingItem(at itemIndexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
+        var attributes = super.finalLayoutAttributesForDisappearingItem(at: itemIndexPath)
+        if deleteIndexPaths.contains(itemIndexPath) {
+            if (attributes == nil) {
+                attributes = self.layoutAttributesForItem(at: itemIndexPath)
+            }
+            attributes!.alpha = 0
+//            attributes!.center = collectionView!.center
+            attributes!.transform3D = CATransform3DMakeScale(0.1, 0.1, 0.1)
+        }
+        return attributes
+    }
 }
